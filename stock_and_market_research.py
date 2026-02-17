@@ -113,7 +113,7 @@ ANALYSES = [
         "prompt_template": (
             "Find stocks where bullish sentiment is becoming repetitive, meme-like, or overly confident."
         ),
-        "params": ["sector", "risk"]
+        "params": []
     },
     {
         "id": "13",
@@ -171,14 +171,14 @@ ANALYSES = [
         ),
         "params": []
     },
-            {
+    {
         "id": "20",
         "name": "Future Price Path Simulation",
         "prompt_template": (
-            "Based on current sentiment, narratives, and catalysts, simulate 3 possible price paths for {stock}} over the next 3–6 months."
+            "Based on current sentiment, narratives, and catalysts, simulate 3 possible price paths for {stock} over the next 3–6 months."
         ),
         "params": ["stock"]
-            },
+    },
 ]
 def perform_analysis(analysis_name, stock, sector, capfocus, risk_level):
     if not xai_api_key:
