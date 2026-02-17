@@ -19,6 +19,15 @@ ANALYSES = [
         "prompt_template": (
             "Search X (Twitter) for the latest discussions about {stock} and analyze the sentiment. "
             "Focus on actionable insights, not noise."
+            "Based on what you find, provide: "
+            "Overall sentiment (bullish/neutral/bearish) "
+            "Key themes and narratives emerging "
+            "Notable investors or analysts discussing it "
+            "Any breaking news or catalysts mentioned "
+            "Shift in sentiment compared to last week "
+            "Retail vs. institutional sentiment indicators "
+            "Hype level assessment (organic vs. pump) "
+            "Momentum prediction: Building or fading?"
         ),
         "params": ["stock"]
     },
@@ -26,9 +35,21 @@ ANALYSES = [
         "id": "2",
         "name": "Analyze current discussions on X about emerging trends in sector",
         "prompt_template": (
-            "Sector: {sector} Focus: {capfocus} Identify trending stocks and catalysts."
+            "Analyze current discussions on X about emerging trends in {sector}. "
+            "Sector: {sector} "
+            "Focus: {capfocus} "
+            "Identify: "
+            "1. What trends are gaining traction right now "
+            "2. Stocks being mentioned repeatedly "
+            "3. New products, technologies, or catalysts "
+            "4. Sentiment shift patterns "
+            "5. Early-stage companies getting attention "
+            "6. Comparison to mainstream media coverage (are we early?) "
+            "7. Key opinion leaders driving the narrative "
+            "8. Stocks positioned to benefit most "
+            "Show me what's trending NOW, not last quarter."
         ),
-        "params": ["sector", "capfocus"]
+        "required_params": ["sector", "capfocus"]
     },
     {
         "id": "3",
@@ -42,9 +63,24 @@ ANALYSES = [
         "id": "4",
         "name": "Identify Stocks with Viral Momentum",
         "prompt_template": (
-            "Search X for stocks gaining viral momentum for market cap {capfocus}."
+            "Search X for stocks that are gaining viral momentum right now. "
+            "Criteria: "
+            "- Sudden spike in mentions "
+            "- Increasing engagement on posts "
+            "- Multiple accounts discussing simultaneously "
+            "- Market cap: [your preference] "
+            "For each stock gaining traction, analyze: "
+            "1. Why it's trending (catalyst, news, hype?) "
+            "2. Quality of the narrative (substance vs. pump) "
+            "3. Who's driving the conversation "
+            "4. Fundamental backing (does it deserve attention?) "
+            "5. Risk of being too late "
+            "6. Historical pattern (does viral = gains for this stock?) "
+            "7. Entry/exit strategy if momentum is real "
+            "8. Red flags suggesting pump and dump "
+            "Separate real opportunities from noise."
         ),
-        "params": ["capfocus"]
+        "required_params": []
     },
     {
         "id": "5",
@@ -74,9 +110,44 @@ ANALYSES = [
         "id": "8",
         "name": "Create a Real-Time Watchlist Strategy",
         "prompt_template": (
-            "Help me build a system to monitor {sector} stocks for {capfocus} with {risk} risk."
+            "Help me build a system to monitor stocks on X for trading opportunities. "
+            "My focus: day trading "
+            "Sectors: {sector} "
+            "Risk tolerance: {risk} "
+            "Create a framework for: "
+            "1. Which accounts and hashtags to monitor daily "
+            "2. Sentiment indicators that signal buy/sell "
+            "3. How to filter noise from actionable signals "
+            "4. Tools and search strategies for X "
+            "5. How to validate X sentiment with fundamentals "
+            "6. Entry and exit triggers based on momentum "
+            "7. Risk management when trading on sentiment "
+            "8. Daily routine to stay ahead of the market "
+            "Make it systematic and repeatable."
         ),
-        "params": ["capfocus", "sector", "risk"]
+        "required_params": ["sector", "risk"]
+    },
+        {
+        "id": 9,
+        "name": "Recent Activity by Sector",
+        "prompt_template": (
+            "Search X for recent activity from notable investors and analysts regarding {sector} "
+            "Focus on: "
+            "Prominent investors (e.g., [specific names if known]) "
+            "Verified analysts and researchers "
+            "Hedge fund managers with public presence "
+            "Analyze: "
+            "1. What stocks they're discussing or buying "
+            "2. Their thesis and reasoning "
+            "3. Timing of their posts (recent accumulation?) "
+            "4. Engagement and agreement from others "
+            "5. Contrarian vs. consensus views "
+            "6. Track record of their past calls "
+            "7. Any disclosed positions or conflicts "
+            "8. Should I follow this move? Why or why not? "
+            "Help me follow smart money in real-time."
+        ),
+        "required_params": ["sector"]
     },
 ]
 
@@ -160,7 +231,29 @@ with gr.Blocks(title="xAI Stock Terminal") as demo:
                     value=ANALYSES[0]["name"]
                 )
                 stock_input = gr.Textbox(label="Stock Ticker", placeholder="e.g. TSLA", visible=True)
-                sector_input = gr.Textbox(label="Sector", placeholder="e.g. Tech", visible=False)
+                sector_input = gr.Dropdown(
+                        label="Market Sector",
+                        choices=[
+                            "AI",
+                            "Semiconductors",
+                            "Information Technology", 
+                            "Health Care", 
+                            "Financials", 
+                            "Consumer Discretionary", 
+                            "Communication Services", 
+                            "Industrials", 
+                            "Consumer Staples", 
+                            "Energy", 
+                            "Utilities", 
+                            "Real Estate", 
+                            "Materials",
+                            "Pharmaceuticals",
+                            "Biotechnology"
+                        ],
+                        value="Information Technology", # Sets a default starting value
+                        multiselect=False,              # Set to True if they can pick more than one
+                        visible=False                   # Kept as False per your snippet
+                    )
                 cap_input = gr.Radio(choices=["small-cap", "mid-cap", "large-cap"], label="Cap Focus", visible=False)
                 risk_input = gr.Dropdown(choices=["low", "medium", "high"], label="Risk", visible=False)
             

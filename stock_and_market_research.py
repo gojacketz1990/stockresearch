@@ -180,8 +180,6 @@ ANALYSES = [
         "params": ["stock"]
             },
 ]
-
-
 def perform_analysis(analysis_name, stock, sector, capfocus, risk_level):
     if not xai_api_key:
         yield "### ⚠️ Error\n`XAI_API_KEY` not found in environment variables."
@@ -262,7 +260,29 @@ with gr.Blocks(title="xAI Stock Terminal") as demo:
                     value=ANALYSES[0]["name"]
                 )
                 stock_input = gr.Textbox(label="Stock Ticker", placeholder="e.g. TSLA", visible=True)
-                sector_input = gr.Textbox(label="Sector", placeholder="e.g. Tech", visible=False)
+                sector_input = gr.Dropdown(
+                        label="Market Sector",
+                        choices=[
+                            "AI",
+                            "Semiconductors",
+                            "Information Technology", 
+                            "Health Care", 
+                            "Financials", 
+                            "Consumer Discretionary", 
+                            "Communication Services", 
+                            "Industrials", 
+                            "Consumer Staples", 
+                            "Energy", 
+                            "Utilities", 
+                            "Real Estate", 
+                            "Materials",
+                            "Pharmaceuticals",
+                            "Biotechnology"
+                        ],
+                        value="Information Technology", # Sets a default starting value
+                        multiselect=False,              # Set to True if they can pick more than one
+                        visible=False                   # Kept as False per your snippet
+                    )
                 cap_input = gr.Radio(choices=["small-cap", "mid-cap", "large-cap"], label="Cap Focus", visible=False)
                 risk_input = gr.Dropdown(choices=["low", "medium", "high"], label="Risk", visible=False)
             
