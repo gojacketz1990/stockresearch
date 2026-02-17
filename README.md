@@ -18,6 +18,13 @@ The **xAI Stock Terminal** is a professional-grade research tool that leverages 
 
 ---
 
+---
+
+## ✨ Requirements
+- **Grok API Key:** Grok API key required to call the x.ai api.
+
+---
+
 ## 🚀 Getting Started
 
 > **System Requirement:** These instructions are for **macOS**. Command syntax for Windows (CMD/PowerShell) will vary.
