@@ -1,0 +1,11 @@
+# Ignore the .env file (standard for secrets)
+.env
+
+# Ignore a specific file
+secret_plans.pdf
+
+# Ignore an entire folder (like dependencies)
+node_modules/
+
+# Ignore all files with a specific extension
+*.log
