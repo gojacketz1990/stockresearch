@@ -27,28 +27,28 @@ The **xAI Stock Terminal** is a professional-grade research tool that leverages 
 git clone [https://github.com/gojacketz1990/stockresearch.git](https://github.com/gojacketz1990/stockresearch.git)
 cd stockresearch
 
-### Set Up Virtual Environment
+### 2.  Set Up Virtual Environment
 
 python3 -m venv venv
 source venv/bin/activate
 
 
-### Install Requirements
+### 3.  Install Requirements
 
 pip install -r requirements.txt
 
 
-### Configuration
+### 4.  Configuration
 
 #### In the project root, create a .env file:
 
 touch .env
 
-#### Past your key into the file:
+####  Paste your key into the file:
 
 XAI_API_KEY=your_xai_api_key_here
 
-### Usage
+### 5.  Usage
 
 #### Launch the Gradio Interface:
 
@@ -57,7 +57,7 @@ python FINAL_catch_trends_stream.py
 Once running, the terminal will provide a local URL (e.g., http://127.0.0.1:7860). Open this in your browser to start your research.
 
 
-### Security Note
+### 6.  Security Note
 
 Never commit your .env file to GitHub. Ensure your .gitignore includes:
 
