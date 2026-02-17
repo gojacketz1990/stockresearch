@@ -250,7 +250,7 @@ theme = gr.themes.Default(
 with gr.Blocks(title="xAI Stock Terminal") as demo:
     with gr.Row():
         with gr.Column():
-            gr.Markdown("# 📈 xAI Stock Analysis Terminal")
+            gr.Markdown("# 📈 Complete Stock and Market Research Tool")
             gr.Markdown("Leveraging **Grok-4-1-Fast-Reasoning** with Live Search.")
     
     with gr.Row():
