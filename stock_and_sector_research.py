@@ -56,6 +56,7 @@ ANALYSES = [
         "name": "Track Smart Money and Influencer Moves",
         "prompt_template": (
             "Search X for recent activity from notable investors regarding {sector}."
+            
         ),
         "params": ["sector"]
     },
@@ -87,6 +88,16 @@ ANALYSES = [
         "name": "Monitor Breaking News and Catalysts",
         "prompt_template": (
             "Search X for breaking news and catalysts related to {stock} in the last 24 hours."
+            "Focus on actionable insights, not noise."
+            "Based on what you find, provide: "
+            "Overall sentiment (bullish/neutral/bearish) "
+            "Key themes and narratives emerging "
+            "Notable investors or analysts discussing it "
+            "Any breaking news or catalysts mentioned "
+            "Shift in sentiment compared to last week "
+            "Retail vs. institutional sentiment indicators "
+            "Hype level assessment (organic vs. pump) "
+            "Momentum prediction: Building or fading?"
         ),
         "params": ["stock"]
     },
@@ -148,6 +159,22 @@ ANALYSES = [
             "Help me follow smart money in real-time."
         ),
         "required_params": ["sector"]
+    },
+            {
+        "id": 10,
+        "name": "Why is this stock moving",
+        "prompt_template": (
+            "Analyze the main drivers behind {stock}'s price action since [specific time/date or 'market open today']. Focus especially on:"
+            "Categorize and roughly weight the drivers as:"
+            "Fundamental news / earnings surprise / guidance change (weight %)"
+            "Analyst upgrades/downgrades / price target changes"
+            "Technical / momentum factors"
+            "Macro / interest rate / commodity / FX crossover effects"
+            "Sentiment / flow / positioning (institutional, retail, options gamma)"
+            "Idiosyncratic (M&A rumor, legal, product launch, etc.)"
+            "End with your best judgment of whether the current move looks sustainable or likely to reverse in the short term, and why."
+        ),
+        "required_params": ["stock"]
     },
 ]
 
