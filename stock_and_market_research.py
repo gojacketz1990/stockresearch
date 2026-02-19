@@ -206,7 +206,7 @@ ANALYSES = [
             "8. Stocks positioned to benefit most "
             "Show me what's trending NOW, not last quarter."
         ),
-        "required_params": ["sector", "capfocus"]
+        "params": ["sector", "capfocus"]
     },
         {
         "id": "22",
@@ -273,6 +273,7 @@ ANALYSES = [
             "My focus: day trading "
             "Sectors: {sector} "
             "Risk tolerance: {risk} "
+            "Focus: {capfocus} "
             "Create a framework for: "
             "1. Which accounts and hashtags to monitor daily "
             "2. Sentiment indicators that signal buy/sell "
@@ -284,7 +285,7 @@ ANALYSES = [
             "8. Daily routine to stay ahead of the market "
             "Make it systematic and repeatable."
         ),
-        "required_params": ["sector", "risk"]
+        "params": ["sector", "risk","capfocus"]
     },
             {
         "id": 27,
@@ -306,7 +307,7 @@ ANALYSES = [
             "8. Should I follow this move? Why or why not? "
             "Help me follow smart money in real-time."
         ),
-        "required_params": ["sector"]
+        "params": ["sector"]
     },
                 {
         "id": 28,
@@ -322,7 +323,7 @@ ANALYSES = [
             "Idiosyncratic (M&A rumor, legal, product launch, etc.)"
             "End with your best judgment of whether the current move looks sustainable or likely to reverse in the short term, and why."
         ),
-        "required_params": ["stock"]
+        "params": ["stock"]
     },
 ]
 def perform_analysis(analysis_name, stock, sector, capfocus, risk_level):
