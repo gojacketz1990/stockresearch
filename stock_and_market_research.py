@@ -15,10 +15,19 @@ xai_api_key = os.getenv('XAI_API_KEY')
 ANALYSES = [
     {
         "id": "1",
-        "name": "Real-Time Sentiment Pulse",
+        "name": "Real-Time stock sentiment",
         "prompt_template": (
-            "Analyze X discussions about {stock} from the last 24–48 hours."
-            "Classify sentiment (bullish / neutral / bearish) and explain why sentiment is shifting."
+            "Search X (Twitter) for the latest discussions about {stock} and analyze the sentiment. "
+            "Focus on actionable insights, not noise."
+            "Based on what you find, provide: "
+            "Overall sentiment (bullish/neutral/bearish) "
+            "Key themes and narratives emerging "
+            "Notable investors or analysts discussing it "
+            "Any breaking news or catalysts mentioned "
+            "Shift in sentiment compared to last week "
+            "Retail vs. institutional sentiment indicators "
+            "Hype level assessment (organic vs. pump) "
+            "Momentum prediction: Building or fading?"
         ),
         "params": ["stock"]
     },
@@ -178,6 +187,142 @@ ANALYSES = [
             "Based on current sentiment, narratives, and catalysts, simulate 3 possible price paths for {stock} over the next 3–6 months."
         ),
         "params": ["stock"]
+    },
+        {
+        "id": "21",
+        "name": "Analyze current discussions on X about emerging trends in sector",
+        "prompt_template": (
+            "Analyze current discussions on X about emerging trends in {sector}. "
+            "Sector: {sector} "
+            "Focus: {capfocus} "
+            "Identify: "
+            "1. What trends are gaining traction right now "
+            "2. Stocks being mentioned repeatedly "
+            "3. New products, technologies, or catalysts "
+            "4. Sentiment shift patterns "
+            "5. Early-stage companies getting attention "
+            "6. Comparison to mainstream media coverage (are we early?) "
+            "7. Key opinion leaders driving the narrative "
+            "8. Stocks positioned to benefit most "
+            "Show me what's trending NOW, not last quarter."
+        ),
+        "required_params": ["sector", "capfocus"]
+    },
+        {
+        "id": "22",
+        "name": "Identify Stocks with Viral Momentum",
+        "prompt_template": (
+            "Search X for stocks that are gaining viral momentum right now. "
+            "Criteria: "
+            "- Sudden spike in mentions "
+            "- Increasing engagement on posts "
+            "- Multiple accounts discussing simultaneously "
+            "- Market cap: [your preference] "
+            "For each stock gaining traction, analyze: "
+            "1. Why it's trending (catalyst, news, hype?) "
+            "2. Quality of the narrative (substance vs. pump) "
+            "3. Who's driving the conversation "
+            "4. Fundamental backing (does it deserve attention?) "
+            "5. Risk of being too late "
+            "6. Historical pattern (does viral = gains for this stock?) "
+            "7. Entry/exit strategy if momentum is real "
+            "8. Red flags suggesting pump and dump "
+            "Separate real opportunities from noise."
+        ),
+        "required_params": []
+    },
+        {
+        "id": "23",
+        "name": "Monitor Breaking News and Catalysts",
+        "prompt_template": (
+            "Search X for breaking news and catalysts related to {stock} in the last 24 hours."
+            "Focus on actionable insights, not noise."
+            "Based on what you find, provide: "
+            "Overall sentiment (bullish/neutral/bearish) "
+            "Key themes and narratives emerging "
+            "Notable investors or analysts discussing it "
+            "Any breaking news or catalysts mentioned "
+            "Shift in sentiment compared to last week "
+            "Retail vs. institutional sentiment indicators "
+            "Hype level assessment (organic vs. pump) "
+            "Momentum prediction: Building or fading?"
+        ),
+        "params": ["stock"]
+    },
+    {
+        "id": "24",
+        "name": "Gauge Retail vs. Institutional Sentiment",
+        "prompt_template": (
+            "Analyze the difference between retail and institutional sentiment for {stock} based on X."
+        ),
+        "params": ["stock"]
+    },
+        {
+        "id": "25",
+        "name": "Detect Early Warning Signs and Red Flags",
+        "prompt_template": (
+            "Search X for red flags, concerns, or negative sentiment about {stock}."
+        ),
+        "params": ["stock"]
+    },
+    {
+        "id": "26",
+        "name": "Create a Real-Time Watchlist Strategy",
+        "prompt_template": (
+            "Help me build a system to monitor stocks on X for trading opportunities. "
+            "My focus: day trading "
+            "Sectors: {sector} "
+            "Risk tolerance: {risk} "
+            "Create a framework for: "
+            "1. Which accounts and hashtags to monitor daily "
+            "2. Sentiment indicators that signal buy/sell "
+            "3. How to filter noise from actionable signals "
+            "4. Tools and search strategies for X "
+            "5. How to validate X sentiment with fundamentals "
+            "6. Entry and exit triggers based on momentum "
+            "7. Risk management when trading on sentiment "
+            "8. Daily routine to stay ahead of the market "
+            "Make it systematic and repeatable."
+        ),
+        "required_params": ["sector", "risk"]
+    },
+            {
+        "id": 27,
+        "name": "Recent Activity by Sector",
+        "prompt_template": (
+            "Search X for recent activity from notable investors and analysts regarding {sector} "
+            "Focus on: "
+            "Prominent investors (e.g., [specific names if known]) "
+            "Verified analysts and researchers "
+            "Hedge fund managers with public presence "
+            "Analyze: "
+            "1. What stocks they're discussing or buying "
+            "2. Their thesis and reasoning "
+            "3. Timing of their posts (recent accumulation?) "
+            "4. Engagement and agreement from others "
+            "5. Contrarian vs. consensus views "
+            "6. Track record of their past calls "
+            "7. Any disclosed positions or conflicts "
+            "8. Should I follow this move? Why or why not? "
+            "Help me follow smart money in real-time."
+        ),
+        "required_params": ["sector"]
+    },
+                {
+        "id": 28,
+        "name": "Why is this stock moving",
+        "prompt_template": (
+            "Analyze the main drivers behind {stock}'s price action since [specific time/date or 'market open today']. Focus especially on:"
+            "Categorize and roughly weight the drivers as:"
+            "Fundamental news / earnings surprise / guidance change (weight %)"
+            "Analyst upgrades/downgrades / price target changes"
+            "Technical / momentum factors"
+            "Macro / interest rate / commodity / FX crossover effects"
+            "Sentiment / flow / positioning (institutional, retail, options gamma)"
+            "Idiosyncratic (M&A rumor, legal, product launch, etc.)"
+            "End with your best judgment of whether the current move looks sustainable or likely to reverse in the short term, and why."
+        ),
+        "required_params": ["stock"]
     },
 ]
 def perform_analysis(analysis_name, stock, sector, capfocus, risk_level):
