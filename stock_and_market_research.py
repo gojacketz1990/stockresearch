@@ -338,6 +338,7 @@ ANALYSES = [
             "- Recent price momentum (e.g., big % moves in the last 1 to 5 days) "
             "- Positive chatter, catalysts, or hype on X/Twitter, Reddit, or financial news "
             "- Preferably NASDAQ/NYSE-listed (avoid or clearly mark OTC/pure pennies unless very active) "
+            "Risk tolerance: {risk} "
             "For each stock in the watchlist (aim for 8 to 15 tickers), include: "
             "1. Ticker symbol and company name "
             "2. Current price (approximate, under $10) "
