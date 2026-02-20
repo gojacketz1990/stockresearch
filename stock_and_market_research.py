@@ -351,6 +351,26 @@ ANALYSES = [
             "Remind that this is not financial advice — always do your own due diligence, use level 2/data, and manage risk tightly on sub-$10 names."        ),
         "params": ["risk"]
     },
+   {
+        "id": "30",
+        "name": "Company and Stock Strength Assessment",
+        "prompt_template": (
+        "Conduct thorough research on company (ticker: {stock}) using Web Search, Browse Page, X Keyword Search, X Semantic Search, and other relevant tools. "
+        "Assess the overall strength of the company and its stock, focusing on fundamentals, market position, risks, and investment potential. "
+        "Gather data from reliable sources like financial news sites, SEC filings, analyst reports, X discussions, and company websites. "
+        "Based on what you find, provide a structured analysis including: "
+        "Company overview: Core business, market cap, recent revenue/profit trends, key products/services "
+        "Financial health: Debt levels, cash flow, profitability metrics (e.g., ROE, margins), latest earnings surprises "
+        "Competitive position: Market share, moat (e.g., brand, tech, barriers), peers comparison "
+        "Growth prospects: Upcoming catalysts (e.g., product launches, expansions), industry trends, analyst forecasts "
+        "Risks and challenges: Regulatory issues, competition threats, macroeconomic sensitivities "
+        "Stock assessment: Current valuation (P/E, EV/EBITDA vs. peers), price performance YTD, technical indicators (e.g., support/resistance) "
+        "Sentiment analysis: Overall X/social media vibe (bullish/neutral/bearish), notable mentions from investors/analysts "
+        "Investment thesis: Strengths/weaknesses summary, buy/hold/sell rationale with 12-month outlook "
+        "Sources: List key references with links where possible. Remain objective and data-driven."
+        ),
+        "params": ["stock"]
+        },
 ]
 def perform_analysis(analysis_name, stock, sector, capfocus, risk_level):
     if not xai_api_key:
