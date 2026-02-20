@@ -360,7 +360,7 @@ ANALYSES = [
         "Gather data from reliable sources like financial news sites, SEC filings, analyst reports, X discussions, and company websites. "
         "Based on what you find, provide a structured analysis including: "
         "Company overview: Core business, market cap, recent revenue/profit trends, key products/services "
-        "Financial health: Debt levels, cash flow, profitability metrics (e.g., ROE, margins), latest earnings surprises "
+        "Financial health: Debt levels, cash flow, profitability metrics (e.g., ROE, margins), latest earnings surprises, all values in USD "
         "Competitive position: Market share, moat (e.g., brand, tech, barriers), peers comparison "
         "Growth prospects: Upcoming catalysts (e.g., product launches, expansions), industry trends, analyst forecasts "
         "Risks and challenges: Regulatory issues, competition threats, macroeconomic sensitivities "
