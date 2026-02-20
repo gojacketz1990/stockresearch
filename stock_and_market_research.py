@@ -213,6 +213,7 @@ ANALYSES = [
         "name": "Identify Stocks with Viral Momentum",
         "prompt_template": (
             "Search X for stocks that are gaining viral momentum right now. "
+            "Focus: {capfocus} "
             "Criteria: "
             "- Sudden spike in mentions "
             "- Increasing engagement on posts "
@@ -229,7 +230,7 @@ ANALYSES = [
             "8. Red flags suggesting pump and dump "
             "Separate real opportunities from noise."
         ),
-        "required_params": []
+        "params": ["capfocus"]
     },
         {
         "id": "23",
@@ -324,6 +325,31 @@ ANALYSES = [
             "End with your best judgment of whether the current move looks sustainable or likely to reverse in the short term, and why."
         ),
         "params": ["stock"]
+    },
+    {
+        "id": "29",
+        "name": "Generate a Real-Time Watchlist for Stocks Under $10",
+        "prompt_template": (
+            "Search X and use web search to reate a real-time watchlist of stocks currently trading under $10 that are suitable for day trading or short-term momentum plays. "
+            "Focus on low-priced stocks (under $10/share) with potential for volatility, volume spikes, or emerging buzz. "
+            "Use up-to-date market information as of today. "
+            "Prioritize stocks that show: "
+            "- High relative volume or unusual volume surges "
+            "- Recent price momentum (e.g., big % moves in the last 1 to 5 days) "
+            "- Positive chatter, catalysts, or hype on X/Twitter, Reddit, or financial news "
+            "- Preferably NASDAQ/NYSE-listed (avoid or clearly mark OTC/pure pennies unless very active) "
+            "For each stock in the watchlist (aim for 8 to 15 tickers), include: "
+            "1. Ticker symbol and company name "
+            "2. Current price (approximate, under $10) "
+            "3. Today's % change and volume vs average "
+            "4. Why it's on the watchlist (e.g., recent catalyst, X mentions, sector heat, technical breakout) "
+            "5. Key risk level (high volatility warning if applicable) "
+            "6. Suggested watch levels (e.g., breakout above X, support at Y) "
+            "Structure the output as a clean markdown table or bulleted list for easy scanning. "
+            "At the end, explain your screening criteria and any sources/tools you used to compile this real-time list. "
+            "Remind that this is not financial advice — always do your own due diligence, use level 2/data, and manage risk tightly on sub-$10 names."
+        ),
+        "params": ["risk"]
     },
 ]
 def perform_analysis(analysis_name, stock, sector, capfocus, risk_level):
@@ -430,7 +456,7 @@ with gr.Blocks(title="xAI Stock Terminal") as demo:
                         visible=False                   # Kept as False per your snippet
                     )
                 cap_input = gr.Radio(choices=["small-cap", "mid-cap", "large-cap"], label="Cap Focus", visible=False)
-                risk_input = gr.Dropdown(choices=["low", "medium", "high"], label="Risk", visible=False)
+                risk_input = gr.Dropdown(choices=["low", "medium", "high", "very high"], label="Risk", visible=False)
             
             run_btn = gr.Button("Execute Analysis", variant="primary")
 
