@@ -328,28 +328,27 @@ ANALYSES = [
     },
     {
         "id": "29",
-        "name": "Generate a Real-Time Watchlist for Stocks Under $10",
+        "name": "Generate a Real-Time Watchlist by Risk Level for Stocks Under $10",
         "prompt_template": (
-            "Search X and use web search to reate a real-time watchlist of stocks currently trading under $10 that are suitable for day trading or short-term momentum plays. "
+            "Search X and use web search to create a real-time watchlist of stocks currently trading under $10 that are suitable for day trading or short-term momentum plays. "
             "Focus on low-priced stocks (under $10/share) with potential for volatility, volume spikes, or emerging buzz. "
             "Use up-to-date market information as of today. "
             "Prioritize stocks that show: "
             "- High relative volume or unusual volume surges "
             "- Recent price momentum (e.g., big % moves in the last 1 to 5 days) "
             "- Positive chatter, catalysts, or hype on X/Twitter, Reddit, or financial news "
-            "- Preferably NASDAQ/NYSE-listed (avoid or clearly mark OTC/pure pennies unless very active) "
-            "Risk tolerance: {risk} "
-            "For each stock in the watchlist (aim for 8 to 15 tickers), include: "
+            "Only include stocks where the key risk level matches the user's risk tolerance: {risk} (e.g., if {risk} is 'medium', filter for medium-risk stocks only). "
+            "Define risk levels as: Low (stable with low volatility), Medium (moderate volatility and some uncertainty), High (high volatility, speculative, or significant downside potential). "
+            "For each stock in the watchlist (aim for 8 to 15 tickers that fit the risk filter), include: "
             "1. Ticker symbol and company name "
             "2. Current price (approximate, under $10) "
             "3. Today's % change and volume vs average "
             "4. Why it's on the watchlist (e.g., recent catalyst, X mentions, sector heat, technical breakout) "
-            "5. Key risk level (high volatility warning if applicable) "
+            "5. Key risk level (must match {risk}) "
             "6. Suggested watch levels (e.g., breakout above X, support at Y) "
             "Structure the output as a clean markdown table or bulleted list for easy scanning. "
             "At the end, explain your screening criteria and any sources/tools you used to compile this real-time list. "
-            "Remind that this is not financial advice — always do your own due diligence, use level 2/data, and manage risk tightly on sub-$10 names."
-        ),
+            "Remind that this is not financial advice — always do your own due diligence, use level 2/data, and manage risk tightly on sub-$10 names."        ),
         "params": ["risk"]
     },
 ]
