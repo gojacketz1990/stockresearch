@@ -351,6 +351,95 @@ ANALYSES = [
             "Remind that this is not financial advice — always do your own due diligence, use level 2/data, and manage risk tightly on sub-$10 names."        ),
         "params": ["risk"]
     },
+    what is a good prompt to ask why a stock is moving?Here are some strong, well-structured prompts you can use (with Grok, ChatGPT, Claude, Perplexity, etc.) when you want a clear, multi-angle explanation of why a stock is moving right now.
+The best prompts share these characteristics:
+
+Specify the ticker + time frame
+Ask for multiple categories of drivers (news, fundamentals, technicals, sentiment, macro, etc.)
+Request prioritization / weighting of factors
+Ask for sources or key evidence
+Include the magnitude of the move
+
+Very Good All-Purpose Prompt (my top recommendation)
+textAct as an experienced equity research analyst. Explain exactly why [TICKER] is moving [up/down] [X%] today / this week / in the last 3 days (as of [current date]).
+
+Structure your answer like this:
+
+1. Primary catalyst(s) — the 1–3 most important reasons (with approximate % contribution if possible)
+2. Supporting / secondary factors
+3. Technical factors (key levels broken, unusual volume, short squeeze signals, options activity, etc.)
+4. Sentiment & positioning (retail/social media buzz, institutional flows, short interest change, put/call skew)
+5. Macro / sector / peer context — is this stock-specific or part of a broader move?
+6. Any conflicting signals or risks to the move continuing
+
+Be specific with dates, events, numbers, and sources when possible. Remain objective and data-driven.
+Example usage
+"Act as an experienced equity research analyst. Explain exactly why NVDA is moving up 4.8% today (as of February 18, 2026). [then paste the structure above]"
+Shorter but Still Effective Version
+textGive me the top 3–5 reasons [TICKER] has moved [up/down sharply / steadily] over the past [1/3/5] trading day(s). Rank them by estimated impact on price. Include any important news, earnings reaction, analyst changes, insider trades, technical breakout, sector rotation, short covering, or macro driver. Cite key dates or data points.
+Even More Precise (great for intraday / very recent moves)
+textAnalyze the main drivers behind [TICKER]'s price action since [specific time/date or "market open today"]. Focus especially on:
+• Any news released in the last 24–48 hours
+• Unusual options flow or block trades
+• Volume vs average
+• Correlation to peers / sector ETF
+• Changes in short interest or borrow rates (if relevant)
+• Social media / retail sentiment shift
+
+Which single factor do you believe explains the majority of today's move?
+Pro-Level Version (if you want very deep analysis)
+textPerform a multi-factor decomposition of [TICKER]'s recent price movement ([X%] over [time period]).
+
+Categorize and roughly weight the drivers as:
+• Fundamental news / earnings surprise / guidance change (weight %)
+• Analyst upgrades/downgrades / price target changes
+• Technical / momentum factors
+• Macro / interest rate / commodity / FX crossover effects
+• Sentiment / flow / positioning (institutional, retail, options gamma)
+• Idiosyncratic (M&A rumor, legal, product launch, etc.)
+
+End with your best judgment of whether the current move looks sustainable or likely to reverse in the short term, and why.
+Pick the version that matches how much detail you want — the first or second one works great for 90% of situations.
+Just plug in the ticker, the approximate % move, and the time window, and you'll usually get far more coherent & useful answers than a vague "why is XYZ moving?" question.I need a good prompt to use Grod/Web Search/X to do research on a company and assess the strength of the company and stock. Here is the format I want:
+ 
+Python{
+        "id": "1",
+        "name": "Real-Time stock sentiment",
+        "prompt_template": (
+            "Search X (Twitter) for the latest discussions about {stock} and analyze the sentiment. "
+            "Focus on actionable insights, not noise."
+            "Based on what you find, provide: "
+            "Overall sentiment (bullish/neutral/bearish) "
+            "Key themes and narratives emerging "
+            "Notable investors or analysts discussing it "
+            "Any breaking news or catalysts mentioned "
+            "Shift in sentiment compared to last week "
+            "Retail vs. institutional sentiment indicators "
+            "Hype level assessment (organic vs. pump) "
+            "Momentum prediction: Building or fading?"
+        ),
+        "params": ["stock"]
+    },
+    {
+        "id": "30",
+        "name": "Company and Stock Strength Assessment",
+        "prompt_template": (
+        "Conduct thorough research on company (ticker: {stock}) using Web Search, Browse Page, X Keyword Search, X Semantic Search, and other relevant tools. "
+        "Assess the overall strength of the company and its stock, focusing on fundamentals, market position, risks, and investment potential. "
+        "Gather data from reliable sources like financial news sites, SEC filings, analyst reports, X discussions, and company websites. "
+        "Based on what you find, provide a structured analysis including: "
+        "Company overview: Core business, market cap, recent revenue/profit trends, key products/services "
+        "Financial health: Debt levels, cash flow, profitability metrics (e.g., ROE, margins), latest earnings surprises "
+        "Competitive position: Market share, moat (e.g., brand, tech, barriers), peers comparison "
+        "Growth prospects: Upcoming catalysts (e.g., product launches, expansions), industry trends, analyst forecasts "
+        "Risks and challenges: Regulatory issues, competition threats, macroeconomic sensitivities "
+        "Stock assessment: Current valuation (P/E, EV/EBITDA vs. peers), price performance YTD, technical indicators (e.g., support/resistance) "
+        "Sentiment analysis: Overall X/social media vibe (bullish/neutral/bearish), notable mentions from investors/analysts "
+        "Investment thesis: Strengths/weaknesses summary, buy/hold/sell rationale with 12-month outlook "
+        "Sources: List key references with links where possible. Remain objective and data-driven."
+        ),
+        "params": ["stock"]
+        },
 ]
 def perform_analysis(analysis_name, stock, sector, capfocus, risk_level):
     if not xai_api_key:
