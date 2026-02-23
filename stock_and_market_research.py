@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 load_dotenv(override=True)
 xai_api_key = os.getenv('XAI_API_KEY')
 
-# Define the analysis configurations
+# Define the analysis configurationspip 
 ANALYSES = [
     {
         "id": "1",
