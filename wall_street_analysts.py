@@ -15,364 +15,244 @@ xai_api_key = os.getenv('XAI_API_KEY')
 ANALYSES = [
     {
         "id": "1",
-        "name": "Real-Time stock sentiment",
+        "name": "The Goldman Sachs Fundamental Analysis Screener",
         "prompt_template": (
-            "Search X (Twitter) for the latest discussions about {stock} and analyze the sentiment. "
-            "Focus on actionable insights, not noise."
-            "Based on what you find, provide: "
-            "Overall sentiment (bullish/neutral/bearish) "
-            "Key themes and narratives emerging "
-            "Notable investors or analysts discussing it "
-            "Any breaking news or catalysts mentioned "
-            "Shift in sentiment compared to last week "
-            "Retail vs. institutional sentiment indicators "
-            "Hype level assessment (organic vs. pump) "
-            "Momentum prediction: Building or fading?"
+
+        "You are a senior equity research analyst at Goldman Sachs with 20 years of experience evaluating companies for the firm's $2T+ asset management division."
+        "I need a complete fundamental analysis of a stock as if you're writing a research report for institutional investors."
+        "Analyze:"
+        "- Business model breakdown: how the company makes money explained simply"
+        " - Revenue streams: each segment with percentage contribution and growth trajectory"
+        "- Profitability analysis: gross margin, operating margin, net margin trends over 5 years"
+        " - Balance sheet health: debt-to-equity, current ratio, cash position vs total debt"
+        "- Free cash flow analysis: FCF yield, FCF growth rate, and capital allocation priorities"
+        "- Competitive advantages: pricing power, brand strength, switching costs, network effects rated 1-10"
+        "- Management quality: capital allocation track record, insider ownership, and compensation alignment"
+        "- Valuation snapshot: current P/E, P/S, EV/EBITDA vs 5-year average and sector peers"
+        "- Bull case and bear case with 12-month price targets for each"
+        "- One-paragraph verdict: buy, hold, or avoid with conviction level"
+        "Format as a Goldman Sachs-style equity research note with a summary rating box at the top."
+        "The stock: {stock}"
         ),
         "params": ["stock"]
     },
     {
         "id": "2",
-        "name": "Sudden Attention Spike Detector",
+        "name": "The Morgan Stanley Technical Analysis Dashboard",
         "prompt_template": (
-            "Find stocks that saw a sudden spike in mentions on X in the last 12 hours, excluding major news outlets. "
-            "Focus on organic chatter, not headlines."
+        "You are a senior technical strategist at Morgan Stanley who advises the firm's largest trading desk on chart patterns, momentum signals, and optimal entry and exit points."
+        "I need a complete technical analysis breakdown of a stock covering every major indicator."
+        "Chart:"
+        "- Trend analysis: primary trend direction on daily, weekly, and monthly timeframes"
+        "- Support and resistance: exact price levels where the stock is likely to bounce or stall"
+        "- Moving averages: 20-day, 50-day, 100-day, 200-day positions and crossover signals"
+        "- RSI reading: current value with interpretation (overbought, oversold, or neutral)"
+        "- MACD analysis: signal line crossovers, histogram momentum, and divergence detection"
+        "- Bollinger Bands: current position within bands and squeeze or expansion status"
+        "- Volume analysis: is volume confirming or contradicting the current price move"
+        "- Fibonacci retracement: key pullback levels from the most recent significant swing"
+        "- Chart pattern identification: head and shoulders, double tops, cup and handle, or flags"
+        "- Trade setup: specific entry price, stop-loss level, and two profit targets with risk-reward ratio"
+        "Format as a Morgan Stanley-style technical analysis note with a clear trade plan summary at the top."
+        "The stock: [ENTER TICKER SYMBOL AND YOUR CURRENT POSITION — LONG, SHORT, OR WATCHING]"
         ),
-        "params": []
+        "params": ["stock"]
     },
     {
         "id": "3",
-        "name": "Retail Before Institutions",
+        "name": "The Bridgewater Risk Assessment Framework",
         "prompt_template": (
-            "Identify stocks where retail traders are accumulating before any analyst upgrades or institutional reports."
+            "You are a senior portfolio risk analyst at Bridgewater Associates trained in Ray Dalio's All Weather principles, managing risk for the world's largest hedge fund with $150B+ in assets."
+
+I need a complete risk assessment of a stock or my portfolio.
+
+Assess:
+
+- Volatility profile: historical and implied volatility vs sector and market averages
+- Beta analysis: how much the stock moves relative to the S&P 500 in up and down markets
+- Maximum drawdown history: worst peak-to-trough drops over the last 10 years with recovery times
+- Correlation analysis: how this stock moves relative to my other holdings
+- Sector concentration risk: am I overexposed to one industry or theme
+- Interest rate sensitivity: how rising or falling rates impact this stock specifically
+- Recession stress test: estimated price decline in a 2008-style or COVID-style crash
+- Earnings risk: how much the stock typically moves on earnings day and upcoming catalyst dates
+- Liquidity risk: average daily volume and bid-ask spread analysis
+- Hedging recommendation: specific options strategies or inverse positions to protect downside
+
+Format as a Bridgewater-style risk memo with a risk dashboard summary table and portfolio-level recommendations.
+
+My holdings: [LIST YOUR POSITIONS WITH APPROXIMATE ALLOCATION PERCENTAGES AND TOTAL PORTFOLIO VALUE]"
+"
         ),
         "params": []
     },
     {
         "id": "4",
-        "name": "Narrative Change Tracker",
+        "name": "The JPMorgan Earnings Analyzer",
         "prompt_template": (
-            "Track how the narrative around {stock} has changed over the last 30 days."
-            "What are people saying now that they weren’t saying before?"
+            You are a senior equity research analyst at JPMorgan Chase who writes pre-earnings and post-earnings analysis for the firm's institutional trading clients managing billions in assets.
+
+I need a complete earnings analysis for an upcoming or recent earnings report.
+
+Analyze:
+
+- Earnings history: last 6 quarters of EPS beats or misses with stock price reaction each time
+- Revenue and EPS consensus estimates for the upcoming quarter from Wall Street analysts
+- Whisper number: what the market actually expects vs the published consensus
+- Key metrics to watch: the 3-5 specific numbers that will determine if the stock goes up or down
+- Segment expectations: revenue breakdown by business line with growth estimates
+- Management guidance: what leadership promised last quarter and whether they're likely to deliver
+- Options implied move: how much the market expects the stock to swing on earnings day
+- Historical earnings day patterns: average and median move over the last 8 reports
+- Pre-earnings positioning: should I buy before, sell before, or wait for the reaction
+- Post-earnings playbook: how to trade the gap up, gap down, or flat open scenarios
+
+Format as a JPMorgan-style earnings preview note with a decision summary and trade plan at the top.
+
+The stock: [ENTER TICKER SYMBOL AND EARNINGS DATE IF KNOWN]"
+
         ),
         "params": ["stock"]
     },
     {
         "id": "5",
-        "name": "Influencer Accumulation Signal",
+        "name": "The Citadel Sector Rotation Strategist",
         "prompt_template": (
-            "Detect when respected traders, operators, or domain experts start mentioning a stock repeatedly without hyping it."
+            "You are a senior macro strategist at Citadel who manages sector rotation strategies based on economic cycles, Federal Reserve policy, and relative strength analysis across all 11 S&P 500 sectors.
+
+I need a complete sector rotation analysis telling me which sectors to overweight and underweight right now.
+
+Analyze:
+
+- Economic cycle positioning: where we are in the expansion, peak, contraction, trough cycle
+- Sector performance rankings: all 11 sectors ranked by 1-month, 3-month, and 6-month returns
+- Relative strength analysis: which sectors are gaining momentum vs losing momentum
+- Interest rate impact: which sectors benefit and which suffer from current Fed policy direction
+- Earnings growth comparison: forward earnings growth estimates for each sector
+- Valuation comparison: forward P/E for each sector vs its 10-year historical average
+- Money flow analysis: which sectors are seeing institutional buying vs selling
+- Defensive vs offensive positioning: risk-on or risk-off based on current market conditions
+- Top ETF picks: best ETF for each recommended overweight sector with expense ratios
+- Model sector allocation: exact percentage weights for an optimized sector portfolio right now
+
+Format as a Citadel-style sector strategy memo with a ranking table, allocation recommendation, and ETF implementation guide.
+
+My portfolio focus: [DESCRIBE YOUR RISK TOLERANCE, TIME HORIZON, AND CURRENT SECTOR EXPOSURES IF ANY]""
         ),
         "params": []
     },
         {
         "id": "6",
-        "name": "Bear-to-Bull Flip Alert",
+        "name": "The Renaissance Technologies Quantitative Screener",
         "prompt_template": (
-            "Find stocks where historically bearish accounts recently turned neutral or bullish."
-            "Highlight exact language changes."
+            "You are a senior quantitative researcher at Renaissance Technologies who builds systematic stock screening models using statistical patterns, factor analysis, and anomaly detection to find mispriced securities.
+
+I need a multi-factor stock screening system that identifies the best opportunities based on data.
+
+Screen:
+
+- Value factors: P/E below sector median, P/FCF under 15, EV/EBITDA in bottom quartile
+- Quality factors: ROE above 15%, stable margins, low debt-to-equity, high interest coverage
+- Momentum factors: price above 200-day MA, relative strength rank in top 20%, positive earnings revisions
+- Growth factors: revenue growth above 10%, EPS growth accelerating, expanding margins
+- Sentiment factors: insider buying, institutional accumulation, short interest declining
+- Custom composite score: blend all factors into a single ranking score from 1-100
+- Top 10 stocks: highest composite scores with individual factor breakdown for each
+- Sector distribution: ensure the screen isn't accidentally concentrated in one sector
+- Backtest context: how this factor combination has historically performed vs the S&P 500
+- Watch list: next 10 stocks that almost made the cut and what would push them in
+
+Format as a Renaissance-style quantitative screening report with a ranked stock table and factor score breakdown.
+
+My criteria: [DESCRIBE YOUR PREFERRED SECTORS, MARKET CAP RANGE, AND ANY FACTORS YOU WANT TO EMPHASIZE OR EXCLUDE]"
+"
         ),
         "params": ["sector", "risk"]
     },
         {
         "id": "7",
-        "name": "Hidden Catalyst Discovery",
+        "name": "The Vanguard ETF Portfolio Constructor",
         "prompt_template": (
-            "Scan X for subtle mentions of upcoming catalysts (contracts, regulation changes, pilots, partnerships) that are not in mainstream news."
+            "SYou are a senior portfolio strategist at Vanguard who builds low-cost, diversified ETF portfolios for investors ranging from aggressive growth seekers to conservative retirees needing capital preservation.
+
+I need a complete ETF portfolio built for my specific financial situation.
+
+Build:
+
+- Asset allocation: exact percentages for US stocks, international stocks, bonds, REITs, and commodities
+- Specific ETF selection: ticker symbol, expense ratio, and assets under management for each pick
+- Core holdings: the 3-5 ETFs that form the foundation of the portfolio
+- Satellite positions: 2-3 tactical ETFs for additional growth or income
+- Geographic diversification: developed markets, emerging markets, and US allocation ratios
+- Bond allocation: duration strategy based on current interest rate environment
+- Expected return range: historical annual return at this allocation with best and worst year scenarios
+- Rebalancing rules: how often to rebalance and what percentage drift triggers action
+- Tax optimization: which ETFs go in taxable vs IRA vs Roth accounts for maximum tax efficiency
+- Dollar cost averaging plan: how to invest a lump sum or monthly contributions across all positions
+
+Format as a Vanguard-style investment policy statement with allocation pie chart description and a specific ETF purchase list.
+
+My situation: [DESCRIBE YOUR AGE, INVESTMENT AMOUNT, RISK TOLERANCE, TIME HORIZON, AND ACCOUNT TYPES]"
+"
         ),
         "params": []
     },
         {
         "id": "8",
-        "name": "Insider Language Pattern Scan",
+        "name": "The D.E. Shaw Options Strategy Architect",
         "prompt_template": (
-            "Analyze posts from employees, ex-employees, or contractors casually referencing their companys momentum or workload."
+            "You are a senior options strategist at D.E. Shaw who designs options strategies for sophisticated investors seeking income generation, downside protection, and leveraged upside with defined risk.
+
+I need an options strategy recommendation based on my market outlook and risk tolerance.
+
+Design:
+
+- Outlook assessment: translate my view into the right options strategy category
+- Strategy selection: covered calls, cash-secured puts, spreads, straddles, or iron condors with reasoning
+- Exact trade setup: specific strike prices, expiration dates, and contract quantities
+- Maximum profit calculation: the most I can make if the trade goes perfectly
+- Maximum loss calculation: the most I can lose in the worst-case scenario
+- Breakeven price: exactly where the stock needs to be for me to break even at expiration
+- Probability of profit: estimated likelihood this trade makes money based on current implied volatility
+- Greeks analysis: delta, theta, gamma exposure and what they mean for my position
+- Adjustment plan: what to do if the stock moves against me (roll, close, or add to the position)
+- Exit rules: when to take profits early and when to cut losses
+
+Format as a D.E. Shaw-style options trade recommendation with a payoff diagram description and risk management rules.
+
+My setup: [ENTER THE STOCK TICKER, YOUR DIRECTIONAL VIEW (BULLISH, BEARISH, NEUTRAL), TIME HORIZON, AND RISK BUDGET]""
         ),
         "params": []
     },
     {
         "id": "9",
-        "name": "Volume Without News",
+        "name": "The Two Sigma Macro Market Outlook",
         "prompt_template": (
-            "Identify stocks with unusual trading volume today but no major news."
-            "Cross-check with X sentiment for possible early explanations."
+            "You are a senior macro strategist at Two Sigma who synthesizes economic data, Federal Reserve policy, geopolitical risks, and cross-asset signals into a comprehensive market outlook for the firm's portfolio managers.
+
+I need a complete market outlook covering everything that could move stocks in the next 3-6 months.
+
+Assess:
+
+- Economic indicators dashboard: GDP growth, unemployment, inflation, consumer spending trends
+- Federal Reserve analysis: current policy stance, rate decision probabilities, and QT impact
+- Earnings season outlook: aggregate S&P 500 earnings growth expectations and guidance trends
+- Valuation assessment: is the overall market cheap, fair, or expensive by historical standards
+- Credit market signals: high yield spreads, investment grade spreads, and what they're telling us
+- Market breadth analysis: advance-decline line, percentage of stocks above 200-day MA, new highs vs lows
+- Sentiment indicators: VIX level, put-call ratio, AAII survey, and CNN Fear & Greed Index
+- Geopolitical risk factors: active conflicts, trade tensions, and election impacts on markets
+- Seasonal patterns: what historical data says about market performance in the coming months
+- Actionable positioning: specific overweight, underweight, and hedge recommendations for right now
+
+Format as a Two Sigma-style macro strategy note with a market dashboard summary and a clear positioning recommendation.
+
+My portfolio: [DESCRIBE YOUR CURRENT POSITIONS, BIGGEST CONCERNS, AND WHAT SPECIFIC MARKET QUESTIONS KEEP YOU UP AT NIGHT]""
         ),
         "params": []
     },
-        {
-        "id": "10",
-        "name": "Sector Rotation Early Signal",
-        "prompt_template": (
-            "Detect early chatter suggesting capital rotating into a specific sector before ETFs or analysts mention it."
-            "Rotations start on X, not Bloomberg."
-        ),
-        "params": []
-    },
-        {
-        "id": "11",
-        "name": "Earnings Whisper Analysis",
-        "prompt_template": (
-            "Analyze pre-earnings discussions on X to extract ‘whisper numbers’ and expectations versus consensus."
-        ),
-        "params": []
-    },
-        {
-        "id": "12",
-        "name": "Crowded Trade Exit Signal",
-        "prompt_template": (
-            "Find stocks where bullish sentiment is becoming repetitive, meme-like, or overly confident."
-        ),
-        "params": []
-    },
-    {
-        "id": "13",
-        "name": "Small-Cap Smart Money Trail",
-        "prompt_template": (
-            "Identify small-cap stocks being discussed by hedge fund analysts, ex-bankers, or finance PhDs on X."
-        ),
-        "params": []
-    },
-        {
-        "id": "14",
-        "name": "Fear Compression Scan",
-        "prompt_template": (
-            "Find stocks where fear-driven language is declining even though price hasn’t moved yet."
-        ),
-        "params": []
-    },
-        {
-        "id": "15",
-        "name": "Macro-to-Micro Translation",
-        "prompt_template": (
-            "Translate current macro events into specific stocks that might benefit before the connection becomes obvious."
-        ),
-        "params": []
-    },
-        {
-        "id": "16",
-        "name": "Management Credibility Signal",
-        "prompt_template": (
-            "Analyze CEO or CFO posts for changes in tone, confidence, or specificity over time."
-        ),
-        "params": []
-    },
-    {
-        "id": "17",
-        "name": "Early Meme Formation Detector",
-        "prompt_template": (
-            "Identify stocks transitioning from serious discussion to early meme language but still low market cap."
-        ),
-        "params": []
-    },
-        {
-        "id": "18",
-        "name": "Regulatory Tailwind Radar",
-        "prompt_template": (
-            "Scan policy, legal, or regulatory discussions on X that could quietly favor specific companies."
-        ),
-        "params": []
-    },
-        {
-        "id": "19",
-        "name": "Global Edge Finder",
-        "prompt_template": (
-            "Track non-US accounts discussing US stocks before US traders notice."
-        ),
-        "params": []
-    },
-    {
-        "id": "20",
-        "name": "Future Price Path Simulation",
-        "prompt_template": (
-            "Based on current sentiment, narratives, and catalysts, simulate 3 possible price paths for {stock} over the next 3–6 months."
-        ),
-        "params": ["stock"]
-    },
-        {
-        "id": "21",
-        "name": "Analyze current discussions on X about emerging trends in sector",
-        "prompt_template": (
-            "Analyze current discussions on X about emerging trends in {sector}. "
-            "Sector: {sector} "
-            "Focus: {capfocus} "
-            "Identify: "
-            "1. What trends are gaining traction right now "
-            "2. Stocks being mentioned repeatedly "
-            "3. New products, technologies, or catalysts "
-            "4. Sentiment shift patterns "
-            "5. Early-stage companies getting attention "
-            "6. Comparison to mainstream media coverage (are we early?) "
-            "7. Key opinion leaders driving the narrative "
-            "8. Stocks positioned to benefit most "
-            "Show me what's trending NOW, not last quarter."
-        ),
-        "params": ["sector", "capfocus"]
-    },
-        {
-        "id": "22",
-        "name": "Identify Stocks with Viral Momentum",
-        "prompt_template": (
-            "Search X for stocks that are gaining viral momentum right now. "
-            "Focus: {capfocus} "
-            "Criteria: "
-            "- Sudden spike in mentions "
-            "- Increasing engagement on posts "
-            "- Multiple accounts discussing simultaneously "
-            "- Market cap: [your preference] "
-            "For each stock gaining traction, analyze: "
-            "1. Why it's trending (catalyst, news, hype?) "
-            "2. Quality of the narrative (substance vs. pump) "
-            "3. Who's driving the conversation "
-            "4. Fundamental backing (does it deserve attention?) "
-            "5. Risk of being too late "
-            "6. Historical pattern (does viral = gains for this stock?) "
-            "7. Entry/exit strategy if momentum is real "
-            "8. Red flags suggesting pump and dump "
-            "Separate real opportunities from noise."
-        ),
-        "params": ["capfocus"]
-    },
-        {
-        "id": "23",
-        "name": "Monitor Breaking News and Catalysts",
-        "prompt_template": (
-            "Search X for breaking news and catalysts related to {stock} in the last 24 hours."
-            "Focus on actionable insights, not noise."
-            "Based on what you find, provide: "
-            "Overall sentiment (bullish/neutral/bearish) "
-            "Key themes and narratives emerging "
-            "Notable investors or analysts discussing it "
-            "Any breaking news or catalysts mentioned "
-            "Shift in sentiment compared to last week "
-            "Retail vs. institutional sentiment indicators "
-            "Hype level assessment (organic vs. pump) "
-            "Momentum prediction: Building or fading?"
-        ),
-        "params": ["stock"]
-    },
-    {
-        "id": "24",
-        "name": "Gauge Retail vs. Institutional Sentiment",
-        "prompt_template": (
-            "Analyze the difference between retail and institutional sentiment for {stock} based on X."
-        ),
-        "params": ["stock"]
-    },
-        {
-        "id": "25",
-        "name": "Detect Early Warning Signs and Red Flags",
-        "prompt_template": (
-            "Search X for red flags, concerns, or negative sentiment about {stock}."
-        ),
-        "params": ["stock"]
-    },
-    {
-        "id": "26",
-        "name": "Create a Real-Time Watchlist Strategy",
-        "prompt_template": (
-            "Help me build a system to monitor stocks on X for trading opportunities. "
-            "My focus: day trading "
-            "Sectors: {sector} "
-            "Risk tolerance: {risk} "
-            "Focus: {capfocus} "
-            "Create a framework for: "
-            "1. Which accounts and hashtags to monitor daily "
-            "2. Sentiment indicators that signal buy/sell "
-            "3. How to filter noise from actionable signals "
-            "4. Tools and search strategies for X "
-            "5. How to validate X sentiment with fundamentals "
-            "6. Entry and exit triggers based on momentum "
-            "7. Risk management when trading on sentiment "
-            "8. Daily routine to stay ahead of the market "
-            "Make it systematic and repeatable."
-        ),
-        "params": ["sector", "risk","capfocus"]
-    },
-            {
-        "id": 27,
-        "name": "Recent Activity by Sector",
-        "prompt_template": (
-            "Search X for recent activity from notable investors and analysts regarding {sector} "
-            "Focus on: "
-            "Prominent investors (e.g., [specific names if known]) "
-            "Verified analysts and researchers "
-            "Hedge fund managers with public presence "
-            "Analyze: "
-            "1. What stocks they're discussing or buying "
-            "2. Their thesis and reasoning "
-            "3. Timing of their posts (recent accumulation?) "
-            "4. Engagement and agreement from others "
-            "5. Contrarian vs. consensus views "
-            "6. Track record of their past calls "
-            "7. Any disclosed positions or conflicts "
-            "8. Should I follow this move? Why or why not? "
-            "Help me follow smart money in real-time."
-        ),
-        "params": ["sector"]
-    },
-                {
-        "id": 28,
-        "name": "Why is this stock moving",
-        "prompt_template": (
-            "Analyze the main drivers behind {stock}'s price action since [specific time/date or 'market open today']. Focus especially on:"
-            "Categorize and roughly weight the drivers as:"
-            "Fundamental news / earnings surprise / guidance change (weight %)"
-            "Analyst upgrades/downgrades / price target changes"
-            "Technical / momentum factors"
-            "Macro / interest rate / commodity / FX crossover effects"
-            "Sentiment / flow / positioning (institutional, retail, options gamma)"
-            "Idiosyncratic (M&A rumor, legal, product launch, etc.)"
-            "End with your best judgment of whether the current move looks sustainable or likely to reverse in the short term, and why."
-        ),
-        "params": ["stock"]
-    },
-    {
-        "id": "29",
-        "name": "Generate a Real-Time Watchlist by Risk Level for Stocks Under $10",
-        "prompt_template": (
-            "Search X and use web search to create a real-time watchlist of stocks currently trading under $10 that are suitable for day trading or short-term momentum plays. "
-            "Focus on low-priced stocks (under $10/share) with potential for volatility, volume spikes, or emerging buzz. "
-            "Use up-to-date market information as of today. "
-            "Prioritize stocks that show: "
-            "- High relative volume or unusual volume surges "
-            "- Recent price momentum (e.g., big % moves in the last 1 to 5 days) "
-            "- Positive chatter, catalysts, or hype on X/Twitter, Reddit, or financial news "
-            "Only include stocks where the key risk level matches the user's risk tolerance: {risk} (e.g., if {risk} is 'medium', filter for medium-risk stocks only). "
-            "Define risk levels as: Low (stable with low volatility), Medium (moderate volatility and some uncertainty), High (high volatility, speculative, or significant downside potential). "
-            "For each stock in the watchlist (aim for 8 to 15 tickers that fit the risk filter), include: "
-            "1. Ticker symbol and company name "
-            "2. Current price (approximate, under $10) "
-            "3. Today's % change and volume vs average "
-            "4. Why it's on the watchlist (e.g., recent catalyst, X mentions, sector heat, technical breakout) "
-            "5. Key risk level (must match {risk}) "
-            "6. Suggested watch levels (e.g., breakout above X, support at Y) "
-            "Structure the output as a clean markdown table or bulleted list for easy scanning. "
-            "At the end, explain your screening criteria and any sources/tools you used to compile this real-time list. "
-            "Remind that this is not financial advice — always do your own due diligence, use level 2/data, and manage risk tightly on sub-$10 names."        ),
-        "params": ["risk"]
-    },
-    {
-        "id": "30",
-        "name": "Company and Stock Strength Assessment",
-        "prompt_template": (
-            "Always convert and report ALL financial and valuation metrics (market cap, revenue, profit, debt, cash, EBITDA, etc.) exclusively in United States Dollars (USD), using the most recent reliable exchange rate. Never show values in GBP, EUR, JPY, CAD, or any other currency — only USD equivalents. "
-            "Conduct thorough research on company (ticker: {stock}) using Web Search, Browse Page, X Keyword Search, X Semantic Search, and other relevant tools. "
-            "Assess the overall strength of the company and its stock, focusing on fundamentals, market position, risks, and investment potential. "
-            "Gather data from reliable sources like financial news sites, SEC filings, analyst reports, X discussions, and company websites. "
-            "Based on what you find, provide a structured analysis including: "
-            "Company overview: Core business, market cap (in USD), recent revenue/profit trends (in USD), key products/services "
-            "Financial health: Debt levels (in USD), cash flow (in USD), profitability metrics (e.g., ROE, margins), latest earnings surprises (in USD), all values strictly in USD "
-            "Competitive position: Market share, moat (e.g., brand, tech, barriers), peers comparison "
-            "Growth prospects: Upcoming catalysts (e.g., product launches, expansions), industry trends, analyst forecasts "
-            "Risks and challenges: Regulatory issues, competition threats, macroeconomic sensitivities "
-            "Stock assessment: Current valuation (P/E, EV/EBITDA vs. peers — all in USD terms), price performance YTD, technical indicators (e.g., support/resistance) "
-            "Sentiment analysis: Overall X/social media vibe (bullish/neutral/bearish), notable mentions from investors/analysts "
-            "Investment thesis: Strengths/weaknesses summary, buy/hold/sell rationale with 12-month outlook "
-            "Sources: List key references with links where possible. "
-            "Output Rules: All monetary amounts MUST be in USD only (e.g., $1.25B USD). Do NOT include original non-USD amounts or conversions in parentheses. Remain objective and data-driven."
-        ),
-        "params": ["stock"]
-    }
+       
+    
 ]
 def perform_analysis(analysis_name, stock, sector, capfocus, risk_level):
     if not xai_api_key:
