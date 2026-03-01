@@ -129,112 +129,26 @@ ANALYSES = [
         "id": "6",
         "name": "The Renaissance Technologies Quantitative Screener",
         "prompt_template": (
-            "You are a senior quantitative researcher at Renaissance Technologies who builds systematic stock screening models using statistical patterns, factor analysis, and anomaly detection to find mispriced securities.
+            "You are a senior quantitative researcher at Renaissance Technologies who builds systematic stock screening models using statistical patterns, factor analysis, and anomaly detection to find mispriced securities."
+            "I need a multi-factor stock screening system that identifies the best opportunities based on data."
+            "Screen:"
+            "- Value factors: P/E below sector median, P/FCF under 15, EV/EBITDA in bottom quartile"
+            "- Quality factors: ROE above 15%, stable margins, low debt-to-equity, high interest coverage"
+            "- Momentum factors: price above 200-day MA, relative strength rank in top 20%, positive earnings revisions"
+            "- Growth factors: revenue growth above 10%, EPS growth accelerating, expanding margins"
+            "- Sentiment factors: insider buying, institutional accumulation, short interest declining"
+            - Custom composite score: blend all factors into a single ranking score from 1-100"
+            "- Top 10 stocks: highest composite scores with individual factor breakdown for each"
+            "- Sector distribution: ensure the screen isn't accidentally concentrated in one sector"
+            "- Backtest context: how this factor combination has historically performed vs the S&P 500"
+            "- Watch list: next 10 stocks that almost made the cut and what would push them "
+            "Format as a Renaissance-style quantitative screening report with a ranked stock table and factor score breakdown."
+            "My criteria: [{sector} and {capfocus}]""
 
-I need a multi-factor stock screening system that identifies the best opportunities based on data.
-
-Screen:
-
-- Value factors: P/E below sector median, P/FCF under 15, EV/EBITDA in bottom quartile
-- Quality factors: ROE above 15%, stable margins, low debt-to-equity, high interest coverage
-- Momentum factors: price above 200-day MA, relative strength rank in top 20%, positive earnings revisions
-- Growth factors: revenue growth above 10%, EPS growth accelerating, expanding margins
-- Sentiment factors: insider buying, institutional accumulation, short interest declining
-- Custom composite score: blend all factors into a single ranking score from 1-100
-- Top 10 stocks: highest composite scores with individual factor breakdown for each
-- Sector distribution: ensure the screen isn't accidentally concentrated in one sector
-- Backtest context: how this factor combination has historically performed vs the S&P 500
-- Watch list: next 10 stocks that almost made the cut and what would push them in
-
-Format as a Renaissance-style quantitative screening report with a ranked stock table and factor score breakdown.
-
-My criteria: [DESCRIBE YOUR PREFERRED SECTORS, MARKET CAP RANGE, AND ANY FACTORS YOU WANT TO EMPHASIZE OR EXCLUDE]"
-"
         ),
-        "params": ["sector", "risk"]
+        "params": ["sector", "capfocus"]
     },
-        {
-        "id": "7",
-        "name": "The Vanguard ETF Portfolio Constructor",
-        "prompt_template": (
-            "SYou are a senior portfolio strategist at Vanguard who builds low-cost, diversified ETF portfolios for investors ranging from aggressive growth seekers to conservative retirees needing capital preservation.
 
-I need a complete ETF portfolio built for my specific financial situation.
-
-Build:
-
-- Asset allocation: exact percentages for US stocks, international stocks, bonds, REITs, and commodities
-- Specific ETF selection: ticker symbol, expense ratio, and assets under management for each pick
-- Core holdings: the 3-5 ETFs that form the foundation of the portfolio
-- Satellite positions: 2-3 tactical ETFs for additional growth or income
-- Geographic diversification: developed markets, emerging markets, and US allocation ratios
-- Bond allocation: duration strategy based on current interest rate environment
-- Expected return range: historical annual return at this allocation with best and worst year scenarios
-- Rebalancing rules: how often to rebalance and what percentage drift triggers action
-- Tax optimization: which ETFs go in taxable vs IRA vs Roth accounts for maximum tax efficiency
-- Dollar cost averaging plan: how to invest a lump sum or monthly contributions across all positions
-
-Format as a Vanguard-style investment policy statement with allocation pie chart description and a specific ETF purchase list.
-
-My situation: [DESCRIBE YOUR AGE, INVESTMENT AMOUNT, RISK TOLERANCE, TIME HORIZON, AND ACCOUNT TYPES]"
-"
-        ),
-        "params": []
-    },
-        {
-        "id": "8",
-        "name": "The D.E. Shaw Options Strategy Architect",
-        "prompt_template": (
-            "You are a senior options strategist at D.E. Shaw who designs options strategies for sophisticated investors seeking income generation, downside protection, and leveraged upside with defined risk.
-
-I need an options strategy recommendation based on my market outlook and risk tolerance.
-
-Design:
-
-- Outlook assessment: translate my view into the right options strategy category
-- Strategy selection: covered calls, cash-secured puts, spreads, straddles, or iron condors with reasoning
-- Exact trade setup: specific strike prices, expiration dates, and contract quantities
-- Maximum profit calculation: the most I can make if the trade goes perfectly
-- Maximum loss calculation: the most I can lose in the worst-case scenario
-- Breakeven price: exactly where the stock needs to be for me to break even at expiration
-- Probability of profit: estimated likelihood this trade makes money based on current implied volatility
-- Greeks analysis: delta, theta, gamma exposure and what they mean for my position
-- Adjustment plan: what to do if the stock moves against me (roll, close, or add to the position)
-- Exit rules: when to take profits early and when to cut losses
-
-Format as a D.E. Shaw-style options trade recommendation with a payoff diagram description and risk management rules.
-
-My setup: [ENTER THE STOCK TICKER, YOUR DIRECTIONAL VIEW (BULLISH, BEARISH, NEUTRAL), TIME HORIZON, AND RISK BUDGET]""
-        ),
-        "params": []
-    },
-    {
-        "id": "9",
-        "name": "The Two Sigma Macro Market Outlook",
-        "prompt_template": (
-            "You are a senior macro strategist at Two Sigma who synthesizes economic data, Federal Reserve policy, geopolitical risks, and cross-asset signals into a comprehensive market outlook for the firm's portfolio managers.
-
-I need a complete market outlook covering everything that could move stocks in the next 3-6 months.
-
-Assess:
-
-- Economic indicators dashboard: GDP growth, unemployment, inflation, consumer spending trends
-- Federal Reserve analysis: current policy stance, rate decision probabilities, and QT impact
-- Earnings season outlook: aggregate S&P 500 earnings growth expectations and guidance trends
-- Valuation assessment: is the overall market cheap, fair, or expensive by historical standards
-- Credit market signals: high yield spreads, investment grade spreads, and what they're telling us
-- Market breadth analysis: advance-decline line, percentage of stocks above 200-day MA, new highs vs lows
-- Sentiment indicators: VIX level, put-call ratio, AAII survey, and CNN Fear & Greed Index
-- Geopolitical risk factors: active conflicts, trade tensions, and election impacts on markets
-- Seasonal patterns: what historical data says about market performance in the coming months
-- Actionable positioning: specific overweight, underweight, and hedge recommendations for right now
-
-Format as a Two Sigma-style macro strategy note with a market dashboard summary and a clear positioning recommendation.
-
-My portfolio: [DESCRIBE YOUR CURRENT POSITIONS, BIGGEST CONCERNS, AND WHAT SPECIFIC MARKET QUESTIONS KEEP YOU UP AT NIGHT]""
-        ),
-        "params": []
-    },
        
     
 ]
