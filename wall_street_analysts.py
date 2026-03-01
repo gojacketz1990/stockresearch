@@ -54,7 +54,7 @@ ANALYSES = [
         "- Chart pattern identification: head and shoulders, double tops, cup and handle, or flags"
         "- Trade setup: specific entry price, stop-loss level, and two profit targets with risk-reward ratio"
         "Format as a Morgan Stanley-style technical analysis note with a clear trade plan summary at the top."
-        "The stock: [ENTER TICKER SYMBOL AND YOUR CURRENT POSITION — LONG, SHORT, OR WATCHING]"
+        "The stock: {stock}"
         ),
         "params": ["stock"]
     },
@@ -63,26 +63,20 @@ ANALYSES = [
         "name": "The Bridgewater Risk Assessment Framework",
         "prompt_template": (
             "You are a senior portfolio risk analyst at Bridgewater Associates trained in Ray Dalio's All Weather principles, managing risk for the world's largest hedge fund with $150B+ in assets."
-
-I need a complete risk assessment of a stock or my portfolio.
-
-Assess:
-
-- Volatility profile: historical and implied volatility vs sector and market averages
-- Beta analysis: how much the stock moves relative to the S&P 500 in up and down markets
-- Maximum drawdown history: worst peak-to-trough drops over the last 10 years with recovery times
-- Correlation analysis: how this stock moves relative to my other holdings
-- Sector concentration risk: am I overexposed to one industry or theme
-- Interest rate sensitivity: how rising or falling rates impact this stock specifically
-- Recession stress test: estimated price decline in a 2008-style or COVID-style crash
-- Earnings risk: how much the stock typically moves on earnings day and upcoming catalyst dates
-- Liquidity risk: average daily volume and bid-ask spread analysis
-- Hedging recommendation: specific options strategies or inverse positions to protect downside
-
-Format as a Bridgewater-style risk memo with a risk dashboard summary table and portfolio-level recommendations.
-
-My holdings: [LIST YOUR POSITIONS WITH APPROXIMATE ALLOCATION PERCENTAGES AND TOTAL PORTFOLIO VALUE]"
-"
+            "I need a complete risk assessment of a stock or my portfolio."
+            "Assess:"
+            "- Volatility profile: historical and implied volatility vs sector and market averages"
+            "- Beta analysis: how much the stock moves relative to the S&P 500 in up and down markets"
+            "- Maximum drawdown history: worst peak-to-trough drops over the last 10 years with recovery times"
+            "- Correlation analysis: how this stock moves relative to my other holdings"
+            "- Sector concentration risk: am I overexposed to one industry or theme"
+            "- Interest rate sensitivity: how rising or falling rates impact this stock specifically"
+            "-Recession stress test: estimated price decline in a 2008-style or COVID-style crash"
+            - "Earnings risk: how much the stock typically moves on earnings day and upcoming catalyst dates"
+            "- Liquidity risk: average daily volume and bid-ask spread analysis"
+            "- Hedging recommendation: specific options strategies or inverse positions to protect downside"
+            "Format as a Bridgewater-style risk memo with a risk dashboard summary table and portfolio-level recommendations."
+            "My holdings: {stock}"
         ),
         "params": []
     },
@@ -90,26 +84,21 @@ My holdings: [LIST YOUR POSITIONS WITH APPROXIMATE ALLOCATION PERCENTAGES AND TO
         "id": "4",
         "name": "The JPMorgan Earnings Analyzer",
         "prompt_template": (
-            You are a senior equity research analyst at JPMorgan Chase who writes pre-earnings and post-earnings analysis for the firm's institutional trading clients managing billions in assets.
-
-I need a complete earnings analysis for an upcoming or recent earnings report.
-
-Analyze:
-
-- Earnings history: last 6 quarters of EPS beats or misses with stock price reaction each time
-- Revenue and EPS consensus estimates for the upcoming quarter from Wall Street analysts
-- Whisper number: what the market actually expects vs the published consensus
-- Key metrics to watch: the 3-5 specific numbers that will determine if the stock goes up or down
-- Segment expectations: revenue breakdown by business line with growth estimates
-- Management guidance: what leadership promised last quarter and whether they're likely to deliver
-- Options implied move: how much the market expects the stock to swing on earnings day
-- Historical earnings day patterns: average and median move over the last 8 reports
-- Pre-earnings positioning: should I buy before, sell before, or wait for the reaction
-- Post-earnings playbook: how to trade the gap up, gap down, or flat open scenarios
-
-Format as a JPMorgan-style earnings preview note with a decision summary and trade plan at the top.
-
-The stock: [ENTER TICKER SYMBOL AND EARNINGS DATE IF KNOWN]"
+            "You are a senior equity research analyst at JPMorgan Chase who writes pre-earnings and post-earnings analysis for the firm's institutional trading clients managing billions in assets."
+            "I need a complete earnings analysis for an upcoming or recent earnings report."
+            "Analyze:"
+            "- Earnings history: last 6 quarters of EPS beats or misses with stock price reaction each time"
+            "- Revenue and EPS consensus estimates for the upcoming quarter from Wall Street analysts"
+            "- Whisper number: what the market actually expects vs the published consensus"
+            "- Key metrics to watch: the 3-5 specific numbers that will determine if the stock goes up or down"
+            "- Segment expectations: revenue breakdown by business line with growth estimates"
+            "- Management guidance: what leadership promised last quarter and whether they're likely to deliver"
+            "- Options implied move: how much the market expects the stock to swing on earnings day"
+            "- Historical earnings day patterns: average and median move over the last 8 reports"
+            "- Pre-earnings positioning: should I buy before, sell before, or wait for the reaction"
+            "- Post-earnings playbook: how to trade the gap up, gap down, or flat open scenarios"
+            "Format as a JPMorgan-style earnings preview note with a decision summary and trade plan at the top."
+            "The stock: {stock}"
 
         ),
         "params": ["stock"]
@@ -118,28 +107,23 @@ The stock: [ENTER TICKER SYMBOL AND EARNINGS DATE IF KNOWN]"
         "id": "5",
         "name": "The Citadel Sector Rotation Strategist",
         "prompt_template": (
-            "You are a senior macro strategist at Citadel who manages sector rotation strategies based on economic cycles, Federal Reserve policy, and relative strength analysis across all 11 S&P 500 sectors.
-
-I need a complete sector rotation analysis telling me which sectors to overweight and underweight right now.
-
-Analyze:
-
-- Economic cycle positioning: where we are in the expansion, peak, contraction, trough cycle
-- Sector performance rankings: all 11 sectors ranked by 1-month, 3-month, and 6-month returns
-- Relative strength analysis: which sectors are gaining momentum vs losing momentum
-- Interest rate impact: which sectors benefit and which suffer from current Fed policy direction
-- Earnings growth comparison: forward earnings growth estimates for each sector
-- Valuation comparison: forward P/E for each sector vs its 10-year historical average
-- Money flow analysis: which sectors are seeing institutional buying vs selling
-- Defensive vs offensive positioning: risk-on or risk-off based on current market conditions
-- Top ETF picks: best ETF for each recommended overweight sector with expense ratios
-- Model sector allocation: exact percentage weights for an optimized sector portfolio right now
-
-Format as a Citadel-style sector strategy memo with a ranking table, allocation recommendation, and ETF implementation guide.
-
-My portfolio focus: [DESCRIBE YOUR RISK TOLERANCE, TIME HORIZON, AND CURRENT SECTOR EXPOSURES IF ANY]""
+            "You are a senior macro strategist at Citadel who manages sector rotation strategies based on economic cycles, Federal Reserve policy, and relative strength analysis across all 11 S&P 500 sectors."
+            "I need a complete sector rotation analysis telling me which sectors to overweight and underweight right now."
+            "Analyze:"
+            "- Economic cycle positioning: where we are in the expansion, peak, contraction, trough cycle"
+            "- Sector performance rankings: all 11 sectors ranked by 1-month, 3-month, and 6-month returns"
+            "- Relative strength analysis: which sectors are gaining momentum vs losing momentum"
+            "- Interest rate impact: which sectors benefit and which suffer from current Fed policy direction"
+            "- Earnings growth comparison: forward earnings growth estimates for each sector"
+            "- Valuation comparison: forward P/E for each sector vs its 10-year historical average"
+            "- Money flow analysis: which sectors are seeing institutional buying vs selling"
+            "- Defensive vs offensive positioning: risk-on or risk-off based on current market conditions"
+            "- Top ETF picks: best ETF for each recommended overweight sector with expense ratios"
+            "- Model sector allocation: exact percentage weights for an optimized sector portfolio right now"
+            "Format as a Citadel-style sector strategy memo with a ranking table, allocation recommendation, and ETF implementation guide."
+            "My portfolio focus: {risk} and {sector}"
         ),
-        "params": []
+        "params": ["risk","sector"]
     },
         {
         "id": "6",
