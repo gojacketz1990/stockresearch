@@ -151,305 +151,53 @@ ANALYSES = [
         ),
         "params": []
     },
-        {
+    {
         "id": "7",
-        "name": "Hidden Catalyst Discovery",
+        "name": "The Wolverine Trading Risk Management System",
         "prompt_template": (
-            "Scan X for subtle mentions of upcoming catalysts (contracts, regulation changes, pilots, partnerships) that are not in mainstream news."
+            "You are a senior risk manager at Wolverine Trading who monitors options portfolios in real-time and enforces strict "
+            "risk rules that prevent catastrophic losses — because surviving bad days is more important than maximizing good ones."
+            "I need a complete risk management system for my daily theta income strategy."
+            "Protect:"
+            "- Daily loss limit: the maximum dollar amount I'm allowed to lose in a single day before closing all positions"
+            "- Weekly loss limit: cumulative weekly threshold that triggers a trading pause until next Monday"
+            "- Position size cap: maximum number of contracts or dollar risk per individual trade (never exceed 2-5% of account)"
+            "- Correlation check: am I accidentally running the same directional bet in multiple positions simultaneously"
+            "- Tail risk protection: how to hedge against a 3+ standard deviation move that blows through all my short strikes"
+            "- VIX spike protocol: specific actions when VIX jumps 20%+ in a single day (close, hedge, or widen strikes)"
+            "- Buying power management: never use more than 50% of total buying power so I always have room to adjust"
+            "- Rolling vs closing decision tree: when to roll a losing position for recovery vs cutting the loss immediately"
+            "- Recovery protocol: after a max loss day, how to reduce size and rebuild confidence systematically"
+            "- Monthly drawdown circuit breaker: if monthly losses hit 10% of account, stop trading for the rest of the month"
+            "Format as a Wolverine-style risk management manual with hard rules, decision trees, and a daily risk checklist to review before every trading session."
+            "My account: [ENTER YOUR ACCOUNT SIZE, CURRENT POSITIONS, DAILY INCOME TARGET, AND MAXIMUM ACCEPTABLE DRAWDOWN]"
         ),
         "params": []
     },
         {
         "id": "8",
-        "name": "Insider Language Pattern Scan",
+        "name": "The Peak6 SPY Weekly Income Calendar",
         "prompt_template": (
-            "Analyze posts from employees, ex-employees, or contractors casually referencing their companys momentum or workload."
+            "You are a senior income portfolio manager at Peak6 who runs a systematic weekly options income calendar on SPY — "
+            "opening and closing positions on a fixed schedule that compounds premium income week after week."
+            "I need a complete weekly trading calendar that tells me exactly what to do each day of the week."
+            "Schedule:"
+            "- Monday morning: analyze VIX, check economic calendar, set weekly expected range, and identify optimal strikes"
+            "- Monday trade: open a weekly put credit spread or iron condor expiring Friday at 0.12-0.15 delta short strikes"
+            "- Tuesday management: check positions at 10 AM — if at 30%+ profit already, consider closing early to free capital"
+            "- Wednesday midweek review: reassess market direction — if one side is threatened, prepare adjustment or roll"
+            "- Thursday acceleration: theta decay accelerates sharply — decide to hold for full decay or close at 65% profit"
+            "- Friday morning decision: close all positions by 11 AM to avoid pin risk, or let OTM options expire worthless"
+            "- Friday afternoon: review the week's performance, log all trades, and prepare Monday's watchlist"
+            "- Position sizing cycle: use fixed percentage of account per week (3-5%) and increase only after 4 consecutive winning weeks"
+            "- Loss week protocol: after a losing week, reduce position size by 50% for the following week"
+            "- Monthly reconciliation: review all 4 weekly cycles, calculate actual win rate, and adjust delta levels if needed"
+            "Format as a Peak6-style weekly trading calendar with exact daily actions, position management checkpoints, and a trade journal template."
+            "My account: [ENTER YOUR ACCOUNT SIZE, WEEKLY INCOME TARGET, RISK TOLERANCE PER WEEK, AND WHETHER YOU CAN MONITOR TRADES DURING MARKET HOURS]"
         ),
         "params": []
-    },
-    {
-        "id": "9",
-        "name": "Volume Without News",
-        "prompt_template": (
-            "Identify stocks with unusual trading volume today but no major news."
-            "Cross-check with X sentiment for possible early explanations."
-        ),
-        "params": []
-    },
-        {
-        "id": "10",
-        "name": "Sector Rotation Early Signal",
-        "prompt_template": (
-            "Detect early chatter suggesting capital rotating into a specific sector before ETFs or analysts mention it."
-            "Rotations start on X, not Bloomberg."
-        ),
-        "params": []
-    },
-        {
-        "id": "11",
-        "name": "Earnings Whisper Analysis",
-        "prompt_template": (
-            "Analyze pre-earnings discussions on X to extract ‘whisper numbers’ and expectations versus consensus."
-        ),
-        "params": []
-    },
-        {
-        "id": "12",
-        "name": "Crowded Trade Exit Signal",
-        "prompt_template": (
-            "Find stocks where bullish sentiment is becoming repetitive, meme-like, or overly confident."
-        ),
-        "params": []
-    },
-    {
-        "id": "13",
-        "name": "Small-Cap Smart Money Trail",
-        "prompt_template": (
-            "Identify small-cap stocks being discussed by hedge fund analysts, ex-bankers, or finance PhDs on X."
-        ),
-        "params": []
-    },
-        {
-        "id": "14",
-        "name": "Fear Compression Scan",
-        "prompt_template": (
-            "Find stocks where fear-driven language is declining even though price hasn’t moved yet."
-        ),
-        "params": []
-    },
-        {
-        "id": "15",
-        "name": "Macro-to-Micro Translation",
-        "prompt_template": (
-            "Translate current macro events into specific stocks that might benefit before the connection becomes obvious."
-        ),
-        "params": []
-    },
-        {
-        "id": "16",
-        "name": "Management Credibility Signal",
-        "prompt_template": (
-            "Analyze CEO or CFO posts for changes in tone, confidence, or specificity over time."
-        ),
-        "params": []
-    },
-    {
-        "id": "17",
-        "name": "Early Meme Formation Detector",
-        "prompt_template": (
-            "Identify stocks transitioning from serious discussion to early meme language but still low market cap."
-        ),
-        "params": []
-    },
-        {
-        "id": "18",
-        "name": "Regulatory Tailwind Radar",
-        "prompt_template": (
-            "Scan policy, legal, or regulatory discussions on X that could quietly favor specific companies."
-        ),
-        "params": []
-    },
-        {
-        "id": "19",
-        "name": "Global Edge Finder",
-        "prompt_template": (
-            "Track non-US accounts discussing US stocks before US traders notice."
-        ),
-        "params": []
-    },
-    {
-        "id": "20",
-        "name": "Future Price Path Simulation",
-        "prompt_template": (
-            "Based on current sentiment, narratives, and catalysts, simulate 3 possible price paths for {stock} over the next 3–6 months."
-        ),
-        "params": ["stock"]
-    },
-        {
-        "id": "21",
-        "name": "Analyze current discussions on X about emerging trends in sector",
-        "prompt_template": (
-            "Analyze current discussions on X about emerging trends in {sector}. "
-            "Sector: {sector} "
-            "Focus: {capfocus} "
-            "Identify: "
-            "1. What trends are gaining traction right now "
-            "2. Stocks being mentioned repeatedly "
-            "3. New products, technologies, or catalysts "
-            "4. Sentiment shift patterns "
-            "5. Early-stage companies getting attention "
-            "6. Comparison to mainstream media coverage (are we early?) "
-            "7. Key opinion leaders driving the narrative "
-            "8. Stocks positioned to benefit most "
-            "Show me what's trending NOW, not last quarter."
-        ),
-        "params": ["sector", "capfocus"]
-    },
-        {
-        "id": "22",
-        "name": "Identify Stocks with Viral Momentum",
-        "prompt_template": (
-            "Search X for stocks that are gaining viral momentum right now. "
-            "Focus: {capfocus} "
-            "Criteria: "
-            "- Sudden spike in mentions "
-            "- Increasing engagement on posts "
-            "- Multiple accounts discussing simultaneously "
-            "- Market cap: [your preference] "
-            "For each stock gaining traction, analyze: "
-            "1. Why it's trending (catalyst, news, hype?) "
-            "2. Quality of the narrative (substance vs. pump) "
-            "3. Who's driving the conversation "
-            "4. Fundamental backing (does it deserve attention?) "
-            "5. Risk of being too late "
-            "6. Historical pattern (does viral = gains for this stock?) "
-            "7. Entry/exit strategy if momentum is real "
-            "8. Red flags suggesting pump and dump "
-            "Separate real opportunities from noise."
-        ),
-        "params": ["capfocus"]
-    },
-        {
-        "id": "23",
-        "name": "Monitor Breaking News and Catalysts",
-        "prompt_template": (
-            "Search X for breaking news and catalysts related to {stock} in the last 24 hours."
-            "Focus on actionable insights, not noise."
-            "Based on what you find, provide: "
-            "Overall sentiment (bullish/neutral/bearish) "
-            "Key themes and narratives emerging "
-            "Notable investors or analysts discussing it "
-            "Any breaking news or catalysts mentioned "
-            "Shift in sentiment compared to last week "
-            "Retail vs. institutional sentiment indicators "
-            "Hype level assessment (organic vs. pump) "
-            "Momentum prediction: Building or fading?"
-        ),
-        "params": ["stock"]
-    },
-    {
-        "id": "24",
-        "name": "Gauge Retail vs. Institutional Sentiment",
-        "prompt_template": (
-            "Analyze the difference between retail and institutional sentiment for {stock} based on X."
-        ),
-        "params": ["stock"]
-    },
-        {
-        "id": "25",
-        "name": "Detect Early Warning Signs and Red Flags",
-        "prompt_template": (
-            "Search X for red flags, concerns, or negative sentiment about {stock}."
-        ),
-        "params": ["stock"]
-    },
-    {
-        "id": "26",
-        "name": "Create a Real-Time Watchlist Strategy",
-        "prompt_template": (
-            "Help me build a system to monitor stocks on X for trading opportunities. "
-            "My focus: day trading "
-            "Sectors: {sector} "
-            "Risk tolerance: {risk} "
-            "Focus: {capfocus} "
-            "Create a framework for: "
-            "1. Which accounts and hashtags to monitor daily "
-            "2. Sentiment indicators that signal buy/sell "
-            "3. How to filter noise from actionable signals "
-            "4. Tools and search strategies for X "
-            "5. How to validate X sentiment with fundamentals "
-            "6. Entry and exit triggers based on momentum "
-            "7. Risk management when trading on sentiment "
-            "8. Daily routine to stay ahead of the market "
-            "Make it systematic and repeatable."
-        ),
-        "params": ["sector", "risk","capfocus"]
-    },
-            {
-        "id": 27,
-        "name": "Recent Activity by Sector",
-        "prompt_template": (
-            "Search X for recent activity from notable investors and analysts regarding {sector} "
-            "Focus on: "
-            "Prominent investors (e.g., [specific names if known]) "
-            "Verified analysts and researchers "
-            "Hedge fund managers with public presence "
-            "Analyze: "
-            "1. What stocks they're discussing or buying "
-            "2. Their thesis and reasoning "
-            "3. Timing of their posts (recent accumulation?) "
-            "4. Engagement and agreement from others "
-            "5. Contrarian vs. consensus views "
-            "6. Track record of their past calls "
-            "7. Any disclosed positions or conflicts "
-            "8. Should I follow this move? Why or why not? "
-            "Help me follow smart money in real-time."
-        ),
-        "params": ["sector"]
-    },
-                {
-        "id": 28,
-        "name": "Why is this stock moving",
-        "prompt_template": (
-            "Analyze the main drivers behind {stock}'s price action since [specific time/date or 'market open today']. Focus especially on:"
-            "Categorize and roughly weight the drivers as:"
-            "Fundamental news / earnings surprise / guidance change (weight %)"
-            "Analyst upgrades/downgrades / price target changes"
-            "Technical / momentum factors"
-            "Macro / interest rate / commodity / FX crossover effects"
-            "Sentiment / flow / positioning (institutional, retail, options gamma)"
-            "Idiosyncratic (M&A rumor, legal, product launch, etc.)"
-            "End with your best judgment of whether the current move looks sustainable or likely to reverse in the short term, and why."
-        ),
-        "params": ["stock"]
-    },
-    {
-        "id": "29",
-        "name": "Generate a Real-Time Watchlist by Risk Level for Stocks Under $10",
-        "prompt_template": (
-            "Search X and use web search to create a real-time watchlist of stocks currently trading under $10 that are suitable for day trading or short-term momentum plays. "
-            "Focus on low-priced stocks (under $10/share) with potential for volatility, volume spikes, or emerging buzz. "
-            "Use up-to-date market information as of today. "
-            "Prioritize stocks that show: "
-            "- High relative volume or unusual volume surges "
-            "- Recent price momentum (e.g., big % moves in the last 1 to 5 days) "
-            "- Positive chatter, catalysts, or hype on X/Twitter, Reddit, or financial news "
-            "Only include stocks where the key risk level matches the user's risk tolerance: {risk} (e.g., if {risk} is 'medium', filter for medium-risk stocks only). "
-            "Define risk levels as: Low (stable with low volatility), Medium (moderate volatility and some uncertainty), High (high volatility, speculative, or significant downside potential). "
-            "For each stock in the watchlist (aim for 8 to 15 tickers that fit the risk filter), include: "
-            "1. Ticker symbol and company name "
-            "2. Current price (approximate, under $10) "
-            "3. Today's % change and volume vs average "
-            "4. Why it's on the watchlist (e.g., recent catalyst, X mentions, sector heat, technical breakout) "
-            "5. Key risk level (must match {risk}) "
-            "6. Suggested watch levels (e.g., breakout above X, support at Y) "
-            "Structure the output as a clean markdown table or bulleted list for easy scanning. "
-            "At the end, explain your screening criteria and any sources/tools you used to compile this real-time list. "
-            "Remind that this is not financial advice — always do your own due diligence, use level 2/data, and manage risk tightly on sub-$10 names."        ),
-        "params": ["risk"]
-    },
-    {
-        "id": "30",
-        "name": "Company and Stock Strength Assessment",
-        "prompt_template": (
-            "Always convert and report ALL financial and valuation metrics (market cap, revenue, profit, debt, cash, EBITDA, etc.) exclusively in United States Dollars (USD), using the most recent reliable exchange rate. Never show values in GBP, EUR, JPY, CAD, or any other currency — only USD equivalents. "
-            "Conduct thorough research on company (ticker: {stock}) using Web Search, Browse Page, X Keyword Search, X Semantic Search, and other relevant tools. "
-            "Assess the overall strength of the company and its stock, focusing on fundamentals, market position, risks, and investment potential. "
-            "Gather data from reliable sources like financial news sites, SEC filings, analyst reports, X discussions, and company websites. "
-            "Based on what you find, provide a structured analysis including: "
-            "Company overview: Core business, market cap (in USD), recent revenue/profit trends (in USD), key products/services "
-            "Financial health: Debt levels (in USD), cash flow (in USD), profitability metrics (e.g., ROE, margins), latest earnings surprises (in USD), all values strictly in USD "
-            "Competitive position: Market share, moat (e.g., brand, tech, barriers), peers comparison "
-            "Growth prospects: Upcoming catalysts (e.g., product launches, expansions), industry trends, analyst forecasts "
-            "Risks and challenges: Regulatory issues, competition threats, macroeconomic sensitivities "
-            "Stock assessment: Current valuation (P/E, EV/EBITDA vs. peers — all in USD terms), price performance YTD, technical indicators (e.g., support/resistance) "
-            "Sentiment analysis: Overall X/social media vibe (bullish/neutral/bearish), notable mentions from investors/analysts "
-            "Investment thesis: Strengths/weaknesses summary, buy/hold/sell rationale with 12-month outlook "
-            "Sources: List key references with links where possible. "
-            "Output Rules: All monetary amounts MUST be in USD only (e.g., $1.25B USD). Do NOT include original non-USD amounts or conversions in parentheses. Remain objective and data-driven."
-        ),
-        "params": ["stock"]
     }
+ 
 ]
 def perform_analysis(analysis_name, stock, sector, capfocus, risk_level):
     if not xai_api_key:
