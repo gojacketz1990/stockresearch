@@ -15,64 +15,141 @@ xai_api_key = os.getenv('XAI_API_KEY')
 ANALYSES = [
     {
         "id": "1",
-        "name": "Real-Time stock sentiment",
+        "name": "The Tastytrade 0DTE SPX Credit Spread Scanner",
         "prompt_template": (
-            "Search X (Twitter) for the latest discussions about {stock} and analyze the sentiment. "
-            "Focus on actionable insights, not noise."
-            "Based on what you find, provide: "
-            "Overall sentiment (bullish/neutral/bearish) "
-            "Key themes and narratives emerging "
-            "Notable investors or analysts discussing it "
-            "Any breaking news or catalysts mentioned "
-            "Shift in sentiment compared to last week "
-            "Retail vs. institutional sentiment indicators "
-            "Hype level assessment (organic vs. pump) "
-            "Momentum prediction: Building or fading?"
+            "You are a senior options trader at Tastytrade who specializes in 0DTE (zero days to expiration) SPX credit spreads "            
+            "— the strategy professional theta traders use to generate daily income from time decay on the S&P 500 index. "
+            "I need a complete 0DTE trade setup for today's market session with exact strikes and risk parameters. "
+            "Scan: "
+            "- Market conditions check: is today's VIX level, overnight futures action, and economic calendar suitable for selling premium "
+            "- SPX expected move: calculate today's implied expected range using current ATM straddle pricing "
+            "- Put credit spread setup: short put strike at 0.10-0.15 delta and long put 5-10 points below for protection "
+            "- Call credit spread setup: short call strike at 0.10-0.15 delta and long call 5-10 points above for protection "
+            "- Iron condor combination: if conditions favor it, combine both sides for double premium collection "
+            "- Premium target: minimum $0.50-$1.00 credit collected per spread to justify the risk-reward "
+            "- Risk-reward ratio: maximum loss vs premium collected with a minimum 1:3 reward-to-risk target "
+            "- Entry timing: optimal time of day to enter (typically 9:45-10:30 AM after opening volatility settles) "
+            "- Stop-loss rules: close the trade if spread reaches 2x the premium collected or if SPX breaches short strike "
+            "- Exit strategy: let expire worthless for full profit, or close at 50% profit if reached before 2 PM "
+            "Format as a Tastytrade-style 0DTE trade ticket with exact strikes, entry price, max profit, max loss, and time-based exit rules. "
+            "Today's setup: [TODAY'S DATE, CURRENT SPX PRICE, VIX LEVEL, AND ANY MAJOR ECONOMIC EVENTS SCHEDULED TODAY]"
         ),
-        "params": ["stock"]
+        "params": []
     },
     {
         "id": "2",
-        "name": "Sudden Attention Spike Detector",
+        "name": "The Citadel Market Regime Classifier",
         "prompt_template": (
-            "Find stocks that saw a sudden spike in mentions on X in the last 12 hours, excluding major news outlets. "
-            "Focus on organic chatter, not headlines."
+            "You are a senior quantitative strategist at Citadel who classifies market conditions into specific regimes before"
+            "placing any options trade — because the #1 reason theta traders lose is selling premium in the wrong environment."
+            "I need a complete market regime analysis telling me which options strategy to run today."
+            "Classify:"
+            "- VIX regime: low (under 15), normal (15-20), elevated (20-30), or crisis (30+) and what each means for premium sellers"
+            "- VIX term structure: is the futures curve in contango (normal, good for selling) or backwardation (danger, stop selling)"
+            "- Trend assessment: is SPX trending strongly (bad for iron condors) or range-bound (ideal for selling premium)"
+            "- Realized vs implied volatility: is IV overpricing actual movement (edge for sellers) or underpricing (danger zone)"
+            "- Correlation regime: are stocks moving together (macro-driven, wider spreads needed) or independently (stock-picking works)"
+            "- Overnight gap risk: futures positioning and overseas markets suggesting gap up, gap down, or flat open"
+            "- Economic event density: is today a Fed day, CPI release, or earnings-heavy session requiring wider strikes or sitting out"
+            "- Put-call ratio reading: extreme readings signaling fear (good for selling puts) or complacency (caution on call side)"
+            "- Market breadth: advance-decline line and new highs vs lows confirming or contradicting the index direction"
+            "- Regime verdict: GREEN (sell premium aggressively), YELLOW (sell premium conservatively with wider strikes), or RED (sit in cash)"
+            "Format as a Citadel-style morning regime report with a dashboard summary and specific strategy recommendation for each regime."
+            "Current market: [TODAY'S SPX PRICE, VIX LEVEL, ANY ECONOMIC EVENTS TODAY, AND OVERNIGHT FUTURES DIRECTION]"
         ),
         "params": []
     },
     {
         "id": "3",
-        "name": "Retail Before Institutions",
+        "name": "The SIG Daily Theta Decay Calculator",
         "prompt_template": (
-            "Identify stocks where retail traders are accumulating before any analyst upgrades or institutional reports."
+            "You are a senior options market maker at Susquehanna International Group who quantifies exact theta decay profits on short"
+            "premium positions hour by hour throughout the trading day."
+            "I need a complete theta decay analysis showing exactly how much money my positions earn every hour just from time passing."
+            "Calculate:"
+            "- Position-level theta: exact dollar amount each open position earns per day from time decay"
+            "- Portfolio theta: total daily income across ALL short premium positions combined"
+            "- Hourly decay curve: theta doesn't decay evenly — show me which hours of the day I earn the most"
+            "- Acceleration zone: when theta decay accelerates dramatically in the final hours before expiration"
+            "- Theta-to-delta ratio: am I earning enough theta relative to the directional risk I'm taking"
+            "- Weekend theta capture: selling Friday expiration to collect 3 days of theta over the weekend"
+            "- Theta vs gamma risk: the exact point where gamma risk outweighs theta income (usually when stock approaches short strike)"
+            "- Optimal closing time: the mathematically ideal time to close for profit vs letting positions expire"
+            "- Daily income projection: at my current position sizes, expected income per day, per week, and per month"
+            "- Compounding model: if I reinvest theta profits into larger positions, projected account growth over 30, 60, and 90 days"
+            "Format as a SIG-style theta dashboard with hourly decay schedules, portfolio income summary, and a compounding growth projection."
+            "My positions: [LIST YOUR CURRENT SHORT PREMIUM POSITIONS WITH TICKER, STRIKE, EXPIRATION, CREDIT RECEIVED, AND CURRENT VALUE]"
         ),
         "params": []
     },
     {
         "id": "4",
-        "name": "Narrative Change Tracker",
+        "name": "The Two Sigma Probability-Based Strike Selection",
         "prompt_template": (
-            "Track how the narrative around {stock} has changed over the last 30 days."
-            "What are people saying now that they weren’t saying before?"
+            "You are a senior quantitative researcher at Two Sigma who selects option strikes based purely on statistical "
+            " models — removing emotion and replacing gut feeling with math."
+            "I need a probability-based framework for selecting the exact right strikes for my credit spreads every day."
+            "Select:"
+            "- Delta-based probability: translate delta values into approximate probability of expiring out of the money"
+            "- Standard deviation mapping: place short strikes at 1.0, 1.5, or 2.0 standard deviations from current price"
+            "- Expected move calculation: use current IV to calculate the 1-day, 1-week, and 1-month expected price range"
+            "- Historical accuracy test: how often has the implied expected move actually contained the real move over the last 100 sessions"
+            "- Strike distance optimization: the sweet spot where premium collected justifies the risk of being breached"
+            "- Win rate by delta level: historical win rates at 0.10 delta (90%), 0.15 delta (85%), 0.20 delta (80%), and 0.30 delta (70%)"
+            "- Premium decay at each level: how fast premium decays at each delta level (closer = faster decay but higher risk)"
+            "- Gap risk adjustment: widen strikes on days with overnight event risk (earnings, Fed, economic data)"
+            "- Skew-adjusted selection: when put skew is steep, sell further OTM puts for same premium at wider distance"
+            "- Today's exact strikes: based on all factors, the specific short strike and long strike for today's trade"
+            "Format as a Two Sigma-style probability matrix with strike recommendations at different confidence levels and today's specific trade setup."
+            "Today's trade: [{stock}, CURRENT PRICE, AND 60% WIN RATE]"
         ),
         "params": ["stock"]
     },
     {
         "id": "5",
-        "name": "Influencer Accumulation Signal",
+        "name": "The D.E. Shaw Iron Condor Income Machine",
         "prompt_template": (
-            "Detect when respected traders, operators, or domain experts start mentioning a stock repeatedly without hyping it."
+            "You are a senior portfolio manager at D.E. Shaw who runs systematic iron condor strategies on indexes and ETFs, "
+            "collecting premium from both sides of the market when the underlying stays within a predictable range."
+            "I need a complete daily or weekly iron condor setup optimized for maximum probability income."
+            "Build:"
+            "- Underlying selection: SPX, SPY, QQQ, or IWM — which index is best for iron condors today based on IV and trend"
+            "- Expected range calculation: today's or this week's expected move to set my short strikes outside"
+            "- Put side construction: short put at 0.10-0.15 delta, long put 5-10 points below, credit collected"
+            "- Call side construction: short call at 0.10-0.15 delta, long call 5-10 points above, credit collected"
+            "- Total premium collected: combined credit from both sides as my maximum profit"
+            "- Maximum loss calculation: width of the wider spread minus total premium collected"
+            "- Breakeven prices: the exact upper and lower prices where I start losing money"
+            "- Position sizing: number of contracts based on my account size and 2-5% max risk per trade rule"
+            "- Adjustment triggers: if the underlying moves to within 30% of a short strike, roll the threatened side"
+            "- Profit taking rule: close the entire position at 50% of max profit or manage each side independently"
+            "Format as a D.E. Shaw-style iron condor trade plan with a payoff range description, adjustment protocol, and daily income projection."
+            "My iron condor: [CURRENT PRICE,  DAILY (0DTE)]"
         ),
         "params": []
     },
         {
         "id": "6",
-        "name": "Bear-to-Bull Flip Alert",
+        "name": "The Jane Street Pre-Market Edge Analyzer",
         "prompt_template": (
-            "Find stocks where historically bearish accounts recently turned neutral or bullish."
-            "Highlight exact language changes."
+            "You are a senior volatility trader at Jane Street who analyzes pre-market conditions every morning at 8 AM to determine "
+            "the optimal theta strategy before the opening bell — because the best trades are planned before the market opens."
+            "I need a complete pre-market analysis that tells me exactly what to trade and how to trade it today."
+            "Analyze:"
+            "- Overnight futures movement: how much SPX futures moved overnight and whether the gap will hold or fade"
+            "- Pre-market IV levels: are options pricing higher or lower volatility compared to yesterday's close"
+            "- Economic calendar impact: what reports are released today and their historical impact on market range"
+            "- Earnings exposure: which major companies report today and their potential to move the broader market"
+            "- Globex range: the overnight high-to-low range in futures as a guide for today's expected range"
+            "- Opening gap strategy: if there's a significant gap, will it fill (sell into it) or extend (stay cautious)"
+            "- IV crush opportunity: if yesterday was a high-IV event, are there inflated premiums left to sell this morning"
+            "- Previous day's close analysis: did the market close at highs (bearish lean), lows (bullish lean), or middle (neutral)"
+            "- Support and resistance for today: the 3 key price levels where SPX is likely to bounce or stall"
+            "- Pre-market trade plan: the exact strategy, strikes, expiration, and entry time based on all analysis"
+            "Format as a Jane Street-style morning briefing with a market assessment, trade plan, and scenario playbook for bull, bear, and neutral outcomes."
+            "Today's pre-market: [CURRENT SPX FUTURES PRICE, VIX LEVEL, AND ANY NEWS OR ECONOMIC EVENTS SCHEDULED FOR TODAY]"
         ),
-        "params": ["sector", "risk"]
+        "params": []
     },
         {
         "id": "7",
@@ -439,10 +516,10 @@ theme = gr.themes.Default(
     block_background_fill="#ffffff",
 )
 
-with gr.Blocks(title="xAI Stock Terminal") as demo:
+with gr.Blocks(title="xAI Options Research Tool") as demo:
     with gr.Row():
         with gr.Column():
-            gr.Markdown("# 📈 Complete Stock and Market Research Tool")
+            gr.Markdown("# 📈 Complete Options Research Tool")
             gr.Markdown("Leveraging **Grok-4-1-Fast-Reasoning** with Live Search.")
     
     with gr.Row():
