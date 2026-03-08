@@ -170,7 +170,7 @@ ANALYSES = [
             "- Recovery protocol: after a max loss day, how to reduce size and rebuild confidence systematically"
             "- Monthly drawdown circuit breaker: if monthly losses hit 10% of account, stop trading for the rest of the month"
             "Format as a Wolverine-style risk management manual with hard rules, decision trees, and a daily risk checklist to review before every trading session."
-            "My account: [ENTER YOUR ACCOUNT SIZE, CURRENT POSITIONS, DAILY INCOME TARGET, AND MAXIMUM ACCEPTABLE DRAWDOWN]"
+            "My account: [SMALL ACCOUNT SIZE, $500 DAILY INCOME TARGET, AND $200 MAXIMUM ACCEPTABLE DRAWDOWN]"
         ),
         "params": []
     },
@@ -193,7 +193,7 @@ ANALYSES = [
             "- Loss week protocol: after a losing week, reduce position size by 50% for the following week"
             "- Monthly reconciliation: review all 4 weekly cycles, calculate actual win rate, and adjust delta levels if needed"
             "Format as a Peak6-style weekly trading calendar with exact daily actions, position management checkpoints, and a trade journal template."
-            "My account: [ENTER YOUR ACCOUNT SIZE, WEEKLY INCOME TARGET, RISK TOLERANCE PER WEEK, AND WHETHER YOU CAN MONITOR TRADES DURING MARKET HOURS]"
+            "My account: [SMALL ACCOUNT SIZE, $500 WEEKLY INCOME TARGET, LOW RISK, AND I AM ABLE TO MONITOR MY POSITIONS LIVE]"
         ),
         "params": []
     }
