@@ -15,24 +15,24 @@ xai_api_key = os.getenv('XAI_API_KEY')
 ANALYSES = [
     {
         "id": "1",
-        "name": "The Tastytrade 0DTE SPX Credit Spread Scanner",
+        "name": "The Tastytrade 0DTE SPY Credit Spread Scanner",
         "prompt_template": (
-            "You are a senior options trader at Tastytrade who specializes in 0DTE (zero days to expiration) SPX credit spreads "            
+            "You are a senior options trader at Tastytrade who specializes in 0DTE (zero days to expiration) SPY credit spreads "            
             "— the strategy professional theta traders use to generate daily income from time decay on the S&P 500 index. "
             "I need a complete 0DTE trade setup for today's market session with exact strikes and risk parameters. "
             "Scan: "
             "- Market conditions check: is today's VIX level, overnight futures action, and economic calendar suitable for selling premium "
-            "- SPX expected move: calculate today's implied expected range using current ATM straddle pricing "
+            "- SPY expected move: calculate today's implied expected range using current ATM straddle pricing "
             "- Put credit spread setup: short put strike at 0.10-0.15 delta and long put 5-10 points below for protection "
             "- Call credit spread setup: short call strike at 0.10-0.15 delta and long call 5-10 points above for protection "
             "- Iron condor combination: if conditions favor it, combine both sides for double premium collection "
             "- Premium target: minimum $0.50-$1.00 credit collected per spread to justify the risk-reward "
             "- Risk-reward ratio: maximum loss vs premium collected with a minimum 1:3 reward-to-risk target "
             "- Entry timing: optimal time of day to enter (typically 9:45-10:30 AM after opening volatility settles) "
-            "- Stop-loss rules: close the trade if spread reaches 2x the premium collected or if SPX breaches short strike "
+            "- Stop-loss rules: close the trade if spread reaches 2x the premium collected or if SPY breaches short strike "
             "- Exit strategy: let expire worthless for full profit, or close at 50% profit if reached before 2 PM "
             "Format as a Tastytrade-style 0DTE trade ticket with exact strikes, entry price, max profit, max loss, and time-based exit rules. "
-            "Today's setup: [TODAY'S DATE, CURRENT SPX PRICE, VIX LEVEL, AND ANY MAJOR ECONOMIC EVENTS SCHEDULED TODAY]"
+            "Today's setup: [TODAY'S DATE, CURRENT SPY PRICE, VIX LEVEL, AND ANY MAJOR ECONOMIC EVENTS SCHEDULED TODAY]"
         ),
         "params": []
     },
@@ -46,7 +46,7 @@ ANALYSES = [
             "Classify:"
             "- VIX regime: low (under 15), normal (15-20), elevated (20-30), or crisis (30+) and what each means for premium sellers"
             "- VIX term structure: is the futures curve in contango (normal, good for selling) or backwardation (danger, stop selling)"
-            "- Trend assessment: is SPX trending strongly (bad for iron condors) or range-bound (ideal for selling premium)"
+            "- Trend assessment: is SPY trending strongly (bad for iron condors) or range-bound (ideal for selling premium)"
             "- Realized vs implied volatility: is IV overpricing actual movement (edge for sellers) or underpricing (danger zone)"
             "- Correlation regime: are stocks moving together (macro-driven, wider spreads needed) or independently (stock-picking works)"
             "- Overnight gap risk: futures positioning and overseas markets suggesting gap up, gap down, or flat open"
@@ -55,7 +55,7 @@ ANALYSES = [
             "- Market breadth: advance-decline line and new highs vs lows confirming or contradicting the index direction"
             "- Regime verdict: GREEN (sell premium aggressively), YELLOW (sell premium conservatively with wider strikes), or RED (sit in cash)"
             "Format as a Citadel-style morning regime report with a dashboard summary and specific strategy recommendation for each regime."
-            "Current market: [TODAY'S SPX PRICE, VIX LEVEL, ANY ECONOMIC EVENTS TODAY, AND OVERNIGHT FUTURES DIRECTION]"
+            "Current market: [TODAY'S SPY PRICE, VIX LEVEL, ANY ECONOMIC EVENTS TODAY, AND OVERNIGHT FUTURES DIRECTION]"
         ),
         "params": []
     },
@@ -113,7 +113,7 @@ ANALYSES = [
             "collecting premium from both sides of the market when the underlying stays within a predictable range."
             "I need a complete daily or weekly iron condor setup optimized for maximum probability income."
             "Build:"
-            "- Underlying selection: SPX, SPY, QQQ, or IWM — which index is best for iron condors today based on IV and trend"
+            "- Underlying selection: SPY, QQQ, or IWM — which index is best for iron condors today based on IV and trend"
             "- Expected range calculation: today's or this week's expected move to set my short strikes outside"
             "- Put side construction: short put at 0.10-0.15 delta, long put 5-10 points below, credit collected"
             "- Call side construction: short call at 0.10-0.15 delta, long call 5-10 points above, credit collected"
@@ -136,7 +136,7 @@ ANALYSES = [
             "the optimal theta strategy before the opening bell — because the best trades are planned before the market opens."
             "I need a complete pre-market analysis that tells me exactly what to trade and how to trade it today."
             "Analyze:"
-            "- Overnight futures movement: how much SPX futures moved overnight and whether the gap will hold or fade"
+            "- Overnight futures movement: how much SPY futures moved overnight and whether the gap will hold or fade"
             "- Pre-market IV levels: are options pricing higher or lower volatility compared to yesterday's close"
             "- Economic calendar impact: what reports are released today and their historical impact on market range"
             "- Earnings exposure: which major companies report today and their potential to move the broader market"
@@ -144,10 +144,10 @@ ANALYSES = [
             "- Opening gap strategy: if there's a significant gap, will it fill (sell into it) or extend (stay cautious)"
             "- IV crush opportunity: if yesterday was a high-IV event, are there inflated premiums left to sell this morning"
             "- Previous day's close analysis: did the market close at highs (bearish lean), lows (bullish lean), or middle (neutral)"
-            "- Support and resistance for today: the 3 key price levels where SPX is likely to bounce or stall"
+            "- Support and resistance for today: the 3 key price levels where SPY is likely to bounce or stall"
             "- Pre-market trade plan: the exact strategy, strikes, expiration, and entry time based on all analysis"
             "Format as a Jane Street-style morning briefing with a market assessment, trade plan, and scenario playbook for bull, bear, and neutral outcomes."
-            "Today's pre-market: [CURRENT SPX FUTURES PRICE, VIX LEVEL, AND ANY NEWS OR ECONOMIC EVENTS SCHEDULED FOR TODAY]"
+            "Today's pre-market: [CURRENT SPY FUTURES PRICE, VIX LEVEL, AND ANY NEWS OR ECONOMIC EVENTS SCHEDULED FOR TODAY]"
         ),
         "params": []
     },
