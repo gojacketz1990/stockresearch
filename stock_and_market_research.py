@@ -372,7 +372,68 @@ ANALYSES = [
             "Output Rules: All monetary amounts MUST be in USD only (e.g., $1.25B USD). Do NOT include original non-USD amounts or conversions in parentheses. Remain objective and data-driven."
         ),
         "params": ["stock"]
-    }
+    },
+        {
+        "id": "31",
+        "name": "Undervalued Stock Screener",
+        "prompt_template": (
+            "Analyze the current stock market and identify 10 undervalued companies with strong fundamentals. Filter for: P/E ratio below"
+            "industry average, positive earnings growth, low debt-to-equity ratio, and analyst ratings showing potential upside of 30%+."
+        ),
+        "params": []
+    },
+        {
+        "id": "32",
+        "name": "Insider Trading Pattern Analyzer",
+        "prompt_template": (
+            "Review recent insider trading activity for [sector/industry]. Identify companies where executives are buying significant "
+            "amounts of their own stock. What does this signal about company confidence? Give me the top 5 with the strongest insider"
+            " buying patterns."
+
+        ),
+        "params": []
+    },
+        {
+        "id": "33",
+        "name": "Market Sentiment vs Reality Gap",
+        "prompt_template": (
+            "Find stocks that are currently oversold due to negative sentiment but have strong underlying fundamentals. Compare"
+            " market perception versus actual financial health. Which companies are being unfairly punished by the market right now?"
+        ),
+        "params": []
+    },
+        {
+        "id": "34",
+        "name": "Tech Stock Hype vs Fundamentals",
+        "prompt_template": (
+            "Compare the current valuations of top tech stocks against their revenue growth, profit margins, and cash flow. "
+            "Which are overvalued based on hype? Which are undervalued despite solid fundamentals? Give me 3 overpriced and 3 underpriced picks"
+        ),
+        "params": []
+    },
+        {
+        "id": "35",
+        "name": "Small Cap Growth Identifier",
+        "prompt_template": (
+            "Identify small-cap stocks (under $2B market cap) with high growth potential. Filter for: revenue growth above 20% annually,"
+            " expanding profit margins, strong balance sheets, and low institutional ownership. Give me 5 hidden gems."
+        ),
+        "params": []
+    },
+        {
+        "id": "36",
+        "name": "Undervalued Stock Screener - Lower Price",
+        "prompt_template": (
+            "Analyze the current stock market and identify 10 undervalued companies with stock price below $15 with strong fundamentals. Filter for: P/E ratio below"
+            "industry average, positive earnings growth, low debt-to-equity ratio, and analyst ratings showing potential upside of 30%+."
+        ),
+        "params": []
+    },
+
+
+
+
+
 ]
 def perform_analysis(analysis_name, stock, sector, capfocus, risk_level):
     if not xai_api_key:
