@@ -1,0 +1,92 @@
+POS,DUMMY,PLAYER,SCORE,TODAY,THRU,R1,R2,R3,R4
+1,,Rory McIlroy,-13,-2,16,67,65,73,--
+2,,Scottie Scheffler,-11,-4,F,70,74,65,68
+T3,,Tyrrell Hatton,-10,-6,F,74,66,72,66
+T3,,Russell Henley,-10,-4,F,73,71,66,68
+T3,,Justin Rose,-10,-2,F,70,69,69,70
+T3,,Cameron Young,-10,+1,16,73,67,65,--
+T7,,Collin Morikawa,-9,-4,F,74,69,68,68
+T7,,Sam Burns,-9,+1,17,67,71,68,--
+T9,,Max Homa,-8,-5,F,72,70,71,67
+T9,,Xander Schauffele,-8,-4,F,70,72,70,68
+11,,Jake Knapp,-7,-2,F,73,69,69,70
+T12,,Jordan Spieth,-5,-4,F,72,73,70,68
+T12,,Hideki Matsuyama,-5,-3,F,72,70,72,69
+T12,,Brooks Koepka,-5,-1,F,72,69,71,71
+T12,,Patrick Cantlay,-5,+1,F,77,67,66,73
+T12,,Patrick Reed,-5,+1,F,69,69,72,73
+T12,,Jason Day,-5,+3,F,69,71,68,75
+T18,,Maverick McNealy,-4,-5,F,77,70,70,67
+T18,,Viktor Hovland,-4,-5,F,75,71,71,67
+T18,,Matt Fitzpatrick,-4,-1,F,74,69,70,71
+T21,,Keegan Bradley,-3,-6,F,72,74,73,66
+T21,,Ludvig Åberg,-3,E,F,74,70,69,72
+T21,,Wyndham Clark,-3,+1,F,72,68,72,73
+T24,,Matt McCarty,-2,-3,F,72,73,72,69
+T24,,Adam Scott,-2,-2,F,72,74,70,70
+T24,,Sam Stevens,-2,-2,F,72,74,70,70
+T24,,Brian Campbell,-2,+1,F,71,73,69,73
+T24,,Michael Brennan,-2,+1,F,72,71,70,73
+T24,,Chris Gotterup,-2,+1,F,72,69,72,73
+T24,,Shane Lowry,-2,+7,17,70,69,68,--
+T31,,Alex Noren,-1,-2,F,77,71,69,70
+T31,,Harris English,-1,E,F,73,71,71,72
+T33,,Gary Woodland,E,-6,F,71,75,76,66
+T33,,Dustin Johnson,E,-3,F,73,71,75,69
+T33,,Brian Harman,E,+1,F,79,69,67,73
+T33,,Tommy Fleetwood,E,+4,F,71,68,73,76
+T33,,Ben Griffin,E,+5,F,72,69,70,77
+T38,,Jon Rahm,+1,-4,F,78,70,73,68
+T38,,Ryan Gerard,+1,+5,F,72,72,68,77
+T38,,Haotong Li,+1,+8,F,71,69,69,80
+T41,,Justin Thomas,+2,+1,F,72,74,71,73
+T41,,Jacob Bridgeman,+2,+4,F,71,74,69,76
+T41,,Sepp Straka,+2,+4,F,73,72,69,76
+T41,,Nick Taylor,+2,+5,F,71,72,70,77
+T41,,Kristoffer Reitan,+2,+5,F,72,68,73,77
+46,,Sungjae Im,+3,+5,F,76,69,69,77
+47,,Si Woo Kim,+4,E,F,75,73,72,72
+48,,Aaron Rai,+5,-2,F,71,74,78,70
+T49,,Corey Conners,+6,+3,F,75,73,71,75
+T49,,Marco Penge,+6,+6,F,76,69,71,78
+51,,Kurt Kitayama,+7,E,F,69,79,75,72
+52,,Sergio García,+8,+3,F,72,75,74,75
+53,,Rasmus Højgaard,+10,+5,F,78,70,73,77
+54,,Charl Schwartzel,+12,+3,F,75,73,77,75
+-,,Harry Hall,CUT,-,CUT,77,72,--,--
+-,,Ryan Fox,CUT,-,CUT,77,72,--,--
+-,,Danny Willett,CUT,-,CUT,76,73,--,--
+-,,Bubba Watson,CUT,-,CUT,76,73,--,--
+-,,J.J. Spaun,CUT,-,CUT,74,75,--,--
+-,,Nicolai Højgaard,CUT,-,CUT,76,74,--,--
+-,,Bryson DeChambeau,CUT,-,CUT,76,74,--,--
+-,,Zach Johnson,CUT,-,CUT,75,75,--,--
+-,,Akshay Bhatia,CUT,-,CUT,73,77,--,--
+-,,Robert MacIntyre,CUT,-,CUT,80,71,--,--
+-,,Rasmus Neergaard-Petersen,CUT,-,CUT,77,74,--,--
+-,,Andrew Novak,CUT,-,CUT,75,76,--,--
+-,,Tom McKibbin,CUT,-,CUT,75,76,--,--
+-,,Cameron Smith,CUT,-,CUT,74,77,--,--
+-,,Casey Jarvis,CUT,-,CUT,77,75,--,--
+-,,Daniel Berger,CUT,-,CUT,76,76,--,--
+-,,Jackson Herrington (a),CUT,-,CUT,76,76,--,--
+-,,Michael Kim,CUT,-,CUT,75,77,--,--
+-,,Ethan Fang (a),CUT,-,CUT,74,78,--,--
+-,,Fred Couples,CUT,-,CUT,78,75,--,--
+-,,Mason Howell (a),CUT,-,CUT,77,76,--,--
+-,,José María Olazábal,CUT,-,CUT,74,79,--,--
+-,,Mike Weir,CUT,-,CUT,81,73,--,--
+-,,Vijay Singh,CUT,-,CUT,79,75,--,--
+-,,Fifa Laopakdee (a),CUT,-,CUT,80,75,--,--
+-,,Carlos Ortiz,CUT,-,CUT,80,75,--,--
+-,,Sami Välimäki,CUT,-,CUT,80,75,--,--
+-,,Min Woo Lee,CUT,-,CUT,78,77,--,--
+-,,Johnny Keefer,CUT,-,CUT,76,79,--,--
+-,,Max Greyserman,CUT,-,CUT,79,77,--,--
+-,,Nico Echavarria,CUT,-,CUT,79,78,--,--
+-,,Naoyuki Kataoka,CUT,-,CUT,84,75,--,--
+-,,Aldrich Potgieter,CUT,-,CUT,84,75,--,--
+-,,Mateo Pulcini (a),CUT,-,CUT,81,78,--,--
+-,,Brandon Holtz (a),CUT,-,CUT,81,78,--,--
+-,,Ángel Cabrera,CUT,-,CUT,79,81,--,--
+-,,Davis Riley,CUT,-,CUT,82,80,--,--
